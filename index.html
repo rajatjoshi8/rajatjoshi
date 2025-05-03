@@ -33,7 +33,7 @@
       font-size: 1.1em;
     }
 
-    .contact a {
+    .contact a, .contact span {
       text-decoration: none;
       color: #333;
     }
@@ -80,7 +80,7 @@
       border-radius: 0 0 5px 5px;
     }
 
-    #tab1:checked ~ .content #bio,
+    #tab1:checked ~ .content #home,
     #tab2:checked ~ .content #education,
     #tab3:checked ~ .content #research {
       display: block;
@@ -88,6 +88,10 @@
 
     nav label:hover {
       background-color: #d0d0d0;
+    }
+
+    ul {
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -110,31 +114,37 @@
   <input type="radio" name="tabs" id="tab3">
 
   <nav>
-    <label for="tab1">Bio</label>
+    <label for="tab1">Home</label>
     <label for="tab2">Education</label>
     <label for="tab3">Research</label>
   </nav>
 
   <div class="content">
-    <div id="bio" class="tab">
-      <h2>Bio</h2>
-      <p>I am Rajat Joshi, a researcher passionate about machine learning, data science, and ethical AI. I am currently working on interdisciplinary AI applications in healthcare and education.</p>
+    <div id="home" class="tab">
+      <h2>Welcome</h2>
+      <p>Hello! I’m <strong>Rajat Joshi</strong>, a Ph.D. candidate in Atmospheric and Oceanic Sciences at Princeton University, working under the guidance of <strong>Dr. Rong Zhang</strong>.</p>
+      <p>My academic interests lie in climate dynamics, ocean-atmosphere interactions, and the role of large-scale processes in climate variability and change. This website serves as a hub for my background, research, and academic progress.</p>
     </div>
 
     <div id="education" class="tab">
       <h2>Education</h2>
       <ul>
-        <li>Ph.D. in Artificial Intelligence, Institute of Technology (2025)</li>
-        <li>M.S. in Computer Science, XYZ University (2021)</li>
-        <li>B.Tech in Information Technology, ABC College (2019)</li>
+        <li>
+          <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong><br/>
+          Princeton University, 2021 – Present<br/>
+          Advisor: Dr. Rong Zhang
+        </li>
+        <li>
+          <strong>M.Sc. in Climate Science</strong><br/>
+          Indian Institute of Science, Bangalore – Graduated with Distinction
+        </li>
+        <li>
+          <strong>B.Tech in Mechanical Engineering</strong><br/>
+          G.B. Pant University of Agriculture and Technology, 2015 – 2019
+        </li>
       </ul>
     </div>
 
     <div id="research" class="tab">
       <h2>Research</h2>
-      <p>My research interests include interpretable machine learning, responsible AI systems, and computational modeling for human behavior. I'm currently exploring generative models for social good.</p>
-    </div>
-  </div>
-
-</body>
-</html>
+      <p>My current research investigates oceanic
