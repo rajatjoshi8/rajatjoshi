@@ -7,65 +7,98 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
       max-width: 800px;
       margin: auto;
-      padding: 20px;
-      line-height: 1.6;
+      background-color: #f4f4f4;
     }
-    h1, h2 {
-      color: #333;
+
+    header {
+      text-align: center;
+      padding-bottom: 20px;
     }
+
+    h1 {
+      color: #222;
+    }
+
     nav {
+      display: flex;
+      justify-content: center;
       margin-bottom: 20px;
     }
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0066cc;
+
+    nav label {
+      background-color: #e0e0e0;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 5px 5px 0 0;
     }
-    section {
-      margin-bottom: 40px;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .tab {
+      display: none;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+    }
+
+    #tab1:checked ~ .content #bio,
+    #tab2:checked ~ .content #education,
+    #tab3:checked ~ .content #research {
+      display: block;
+    }
+
+    nav label:hover {
+      background-color: #d0d0d0;
     }
   </style>
 </head>
 <body>
 
-  <h1>Dr. Your Name</h1>
-  <p>Email: rajatjoshi@princeton.edu | GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+  <header>
+    <h1>Rajat Joshi</h1>
+    <p>Email: rajat.joshi@example.com | GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+  </header>
+
+  <!-- Tabs -->
+  <input type="radio" name="tabs" id="tab1" checked>
+  <input type="radio" name="tabs" id="tab2">
+  <input type="radio" name="tabs" id="tab3">
 
   <nav>
-    <a href="#bio">Bio</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
+    <label for="tab1">Bio</label>
+    <label for="tab2">Education</label>
+    <label for="tab3">Research</label>
   </nav>
 
-  <section id="bio">
-    <h2>Bio</h2>
-    <p>I am an assistant professor in the Department of XYZ at University ABC. My research interests include artificial intelligence, machine learning, and data ethics.</p>
-  </section>
+  <div class="content">
+    <div id="bio" class="tab">
+      <h2>Bio</h2>
+      <p>I am Rajat Joshi, a researcher passionate about machine learning, data science, and ethical AI. I am currently working on interdisciplinary AI applications in healthcare and education.</p>
+    </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li>Ph.D. in Computer Science, University ABC (2020)</li>
-      <li>M.S. in Computer Science, University DEF (2015)</li>
-      <li>B.S. in Mathematics, University GHI (2013)</li>
-    </ul>
-  </section>
+    <div id="education" class="tab">
+      <h2>Education</h2>
+      <ul>
+        <li>Ph.D. in Artificial Intelligence, Institute of Technology (2025)</li>
+        <li>M.S. in Computer Science, XYZ University (2021)</li>
+        <li>B.Tech in Information Technology, ABC College (2019)</li>
+      </ul>
+    </div>
 
-  <section id="research">
-    <h2>Research</h2>
-    <p>My research focuses on interpretable machine learning models and their applications in healthcare and education. I lead the AI & Society Lab at University ABC.</p>
-  </section>
-
-  <section id="publications">
-    <h2>Publications</h2>
-    <ul>
-      <li><strong>Smith, Y.</strong> (2024). Ethical AI Systems. <em>Journal of AI Ethics</em>.</li>
-      <li><strong>Smith, Y.</strong> & Doe, J. (2023). Explainable Models in Healthcare. <em>NeurIPS</em>.</li>
-    </ul>
-  </section>
+    <div id="research" class="tab">
+      <h2>Research</h2>
+      <p>My research interests include interpretable machine learning, responsible AI systems, and computational modeling for human behavior. I'm currently exploring generative models for social good.</p>
+    </div>
+  </div>
 
 </body>
 </html>
