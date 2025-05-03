@@ -81,8 +81,10 @@
     }
 
     #tab1:checked ~ .content #home,
-    #tab2:checked ~ .content #CV,
-    #tab3:checked ~ .content #research {
+    #tab2:checked ~ .content #education,
+    #tab3:checked ~ .content #research,
+    #tab4:checked ~ .content #presentations,
+    #tab5:checked ~ .content #publications {
       display: block;
     }
 
@@ -92,6 +94,45 @@
 
     ul {
       padding-left: 20px;
+    }
+
+    .cv-link {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .cv-link a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .cv-link a:hover {
+      color: #007bff;
+    }
+
+    .publications, .presentations {
+      margin-top: 20px;
+    }
+
+    .publications ul, .presentations ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .publications li, .presentations li {
+      margin-bottom: 10px;
+    }
+
+    .publications a, .presentations a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .publications a:hover, .presentations a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -112,11 +153,15 @@
   <input type="radio" name="tabs" id="tab1" checked>
   <input type="radio" name="tabs" id="tab2">
   <input type="radio" name="tabs" id="tab3">
+  <input type="radio" name="tabs" id="tab4">
+  <input type="radio" name="tabs" id="tab5">
 
   <nav>
     <label for="tab1">Home</label>
     <label for="tab2">CV</label>
     <label for="tab3">Research</label>
+    <label for="tab4">Presentations</label>
+    <label for="tab5">Publications</label>
   </nav>
 
   <div class="content">
@@ -126,9 +171,9 @@
       <p>My research interest is broadly in climate dynamics. I have worked on projects related to the impacts of the weakening of AMOC on remote climate, coupled ocean-atmosphere interactions, tropical dynamics and Indian Monsoon Rainfall, and extreme weather events (hurricanes and storm tracks). I am always open to and interested in working on exciting problems beyond my current research interest.</p>
     </div>
 
-    <div id="CV" class="tab" style="line-height: 1.35;">
+    <div id="education" class="tab" style="line-height: 1.35;">
       <h2>CV</h2>
-  
+
       <div style="margin-bottom: 25px;">
         <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong><br/>
         Princeton University, Princeton, NJ, USA<br/>
@@ -149,6 +194,11 @@
         G.B. Pant University of Agriculture and Technology, Pantnagar, India<br/>
         2015 – 2019
       </div>
+
+      <!-- CV Link -->
+      <div class="cv-link">
+        <a href="path-to-your-cv.pdf" target="_blank">Download My Detailed CV</a>
+      </div>
     </div>
 
     <div id="research" class="tab">
@@ -156,8 +206,30 @@
       <p>My current research investigates oceanic influences on decadal climate variability, with a focus on North Atlantic processes and their impacts on monsoonal systems. I work on large-scale climate modeling, data assimilation, and interpreting climate predictions from coupled models.</p>
       <p>I’m also interested in improving the representation of sub-seasonal processes and understanding how model biases affect long-term climate projections.</p>
     </div>
+
+    <div id="presentations" class="tab">
+      <h2>Oral and Poster Presentations</h2>
+      <ul class="presentations">
+        <li>Joshi, R. and Zhang, R. "On the Atlantic extratropical-tropical teleconnection associated with the AMOC weakening." EGU Meeting, (2025), AGU Fall Meeting, (2024) <a href="link-to-presentation" target="_blank">(Link)</a></li>
+        <li>Venugopal, V., Joshi, R., and Borah P.J. "Interhemispherical footprint on Indian monsoon floods." AOGS, (2024)</li>
+        <li>Joshi, R. and Zhang, R. "Wintertime Atmospheric Response over the Extratropical North Pacific to the North Atlantic Biases." Ocean Sciences Meeting, (2024) [Poster] <a href="link-to-poster" target="_blank">(Link)</a> and AGU Fall Meeting, (2023) [Poster] <a href="link-to-poster" target="_blank">(Link)</a></li>
+        <li>Joshi, R., Borah P.J., and Venugopal, V. "Two Distinct Types of Indian Monsoon Floods and their Subseasonal Evolution." AGU Fall Meeting, (2021) [Oral Presentation] <a href="link-to-presentation" target="_blank">(Link)</a></li>
+        <li>Joshi, R., Borah P.J., and Venugopal, V. "Subseasonal Characteristics of Rainfall during Indian Monsoon Floods." International Symposium on Tropical Meteorology, (2021)</li>
+      </ul>
+    </div>
+
+    <div id="publications" class="tab">
+      <h2>Publications</h2>
+      <ul class="publications">
+        <li>Joshi, R. and Zhang, R. "Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific." <i>npj Clim Atmos Sci 6</i>, 151 (2023) <a href="link-to-paper" target="_blank">(Link)</a></li>
+        <li>Joshi, R. and Zhang, R. "On the Atlantic extratropical-tropical teleconnection in response to the external freshwater forcing." <i>Under Review</i> npj Clim Atmos Sci</li>
+        <li>Joshi, R. and Zhang, R. "Impact of the substantial weakening of AMOC on the upper troposphere/lower stratosphere over the extratropical North Pacific." <i>In Prep</i></li>
+        <li>Joshi, R. and Zhang, R. "Is the simulated NAO-type response associated with weakening of AMOC sensitive to the model’s atmospheric resolution?" <i>In Prep</i></li>
+        <li>Joshi, R. and Borah P.J, and Venugopal, V. "Interhemispherical footprint on Indian monsoon floods." <i>In Prep</i></li>
+      </ul>
+    </div>
+
   </div>
 
 </body>
 </html>
-
