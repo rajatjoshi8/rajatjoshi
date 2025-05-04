@@ -4,14 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rajat Joshi - Academic Website</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
+      margin: 0 auto;
       padding: 20px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 1000px;
       background-color: #f4f4f4;
     }
 
@@ -22,24 +21,24 @@
 
     h1 {
       color: #222;
+      margin-bottom: 10px;
     }
 
     .contact {
       display: flex;
       justify-content: center;
-      align-items: center;
       gap: 15px;
       flex-wrap: wrap;
       font-size: 1.1em;
     }
 
-    .contact a, .contact span {
+    .contact a {
       text-decoration: none;
       color: #333;
     }
 
     .contact i {
-      font-size: 1.2em;
+      font-size: 1.3em;
       color: #333;
     }
 
@@ -86,17 +85,13 @@
       display: block;
     }
 
-    nav label:hover {
-      background-color: #d0d0d0;
-    }
-
     ul {
       padding-left: 20px;
     }
 
     .cv-link {
       display: block;
-      margin-top: 20px;
+      margin-top: 30px;
       text-align: center;
       font-size: 1.2em;
     }
@@ -111,22 +106,25 @@
       color: #007bff;
     }
 
-    .publications ul, .presentations ul {
-      list-style-type: none;
-      padding-left: 0;
+    .publications li,
+    .presentations li {
+      margin-bottom: 15px;
     }
 
-    .publications li, .presentations li {
-      margin-bottom: 10px;
-    }
-
-    .publications a, .presentations a {
-      text-decoration: none;
+    .publications a,
+    .presentations a {
       color: #007bff;
+      text-decoration: none;
     }
 
-    .publications a:hover, .presentations a:hover {
+    .publications a:hover,
+    .presentations a:hover {
       text-decoration: underline;
+    }
+
+    .education-entry {
+      margin-bottom: 30px;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -136,7 +134,7 @@
     <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" />
     <h1>Rajat Joshi</h1>
     <div class="contact">
-      <a href="rajatjoshi@princeton.edu" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:rajatjoshi@princeton.edu" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
@@ -155,71 +153,73 @@
   </nav>
 
   <div class="content">
+    <!-- Home Tab -->
     <div id="home" class="tab">
       <h2>Welcome</h2>
       <p>Hello! I’m <strong>Rajat Joshi</strong>, a Ph.D. candidate in Atmospheric and Oceanic Sciences at Princeton University, advised by <strong>Dr. Rong Zhang</strong>.</p>
-      <p>My research interest is broadly in climate dynamics. I have worked on projects related to the impacts of the weakening of AMOC on remote climate, coupled ocean-atmosphere interactions, tropical dynamics and Indian Monsoon Rainfall, and extreme weather events (hurricanes and storm tracks). I am always open to and interested in working on exciting problems beyond my current research interest.</p>
+      <p>My research focuses on climate dynamics, especially the remote impacts of oceanic variability like the AMOC on atmospheric circulation, tropical climate, and extreme rainfall events like the Indian Monsoon floods.</p>
     </div>
 
+    <!-- CV Tab -->
     <div id="cv" class="tab">
       <h2>CV</h2>
 
-      <!-- Education Subheading -->
       <h3>Education</h3>
-      <div style="margin-bottom: 25px;">
-        <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong><br/>
-        Princeton University, Princeton, NJ, USA<br/>
-        2021 – Present (<i>expected Spring 2026</i>)<br/>
-        <i>Adviser</i>: Dr. Rong Zhang<br/>
-        <i>Committee Members</i>: Drs. Leo Donner, Ming Zhao, and David Paynter
+
+      <div class="education-entry">
+        <p><strong>Ph.D. in Atmospheric and Oceanic Sciences</strong></p>
+        <p>Princeton University, Princeton, NJ, USA</p>
+        <p>2021 – Present (<i>expected Spring 2026</i>)</p>
+        <p><i>Adviser:</i> Dr. Rong Zhang</p>
+        <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, and David Paynter</p>
       </div>
 
-      <div style="margin-bottom: 25px;">
-        <strong>Master of Technology (<i>with Distinction</i>) in Climate Science</strong><br/>
-        Indian Institute of Science, Bangalore, India<br/>
-        2019 – 2021<br/>
-        <i>Adviser</i>: Prof. V. Venugopal
+      <div class="education-entry">
+        <p><strong>M.Tech in Climate Science (<i>with Distinction</i>)</strong></p>
+        <p>Indian Institute of Science, Bangalore, India</p>
+        <p>2019 – 2021</p>
+        <p><i>Adviser:</i> Prof. V. Venugopal</p>
       </div>
 
-      <div style="margin-bottom: 10px;">
-        <strong>Bachelor of Technology (<i>with Distinction</i>) in Mechanical Engineering</strong><br/>
-        G.B. Pant University of Agriculture and Technology, Pantnagar, India<br/>
-        2015 – 2019
+      <div class="education-entry">
+        <p><strong>B.Tech in Mechanical Engineering (<i>with Distinction</i>)</strong></p>
+        <p>G.B. Pant University, Pantnagar, India</p>
+        <p>2015 – 2019</p>
       </div>
 
-      <!-- Publications Subheading -->
       <h3>Publications</h3>
       <ul class="publications">
-        <li>Joshi, R. and Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific. <i>npj Climate and Atmospheric Science </i> <b>6</b>, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">https://doi.org/10.1038/s41612-023-00482-4</a></li>
-        <li>Joshi, R. and Zhang, R. On the Atlantic extratropical-tropical teleconnection in response to external freshwater forcing. <b>in revision</b> <i>npj Climate and Atmospheric Science </i> (2025). </li>
-        <li>Joshi, R. and Zhang, R. Impact of the substantial weakening of AMOC on the upper troposphere/lower stratosphere over the extratropical North Pacific. <i>in prep for submission to Geophysical Research Letters</i> </li>
-        <li>Joshi, R. and Zhang, R. "Is the simulated NAO-type response associated with weakening of AMOC sensitive to the model’s atmospheric resolution?" <i>In Prep</i></li>
-        <li>Joshi, R. and Borah P.J, and Venugopal, V. "Interhemispherical footprint on Indian monsoon floods." <i>In Prep</i></li>
+        <li>Joshi, R. and Zhang, R. <b>Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere</b>. <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">DOI</a></li>
+        <li>Joshi, R. and Zhang, R. <b>Atlantic extratropical-tropical teleconnection due to freshwater forcing</b>. <i>Under review</i>, npj Clim Atmos Sci.</li>
+        <li>Joshi, R. and Zhang, R. <b>AMOC weakening impact on extratropical Pacific UTLS</b>. <i>In prep.</i></li>
+        <li>Joshi, R. and Zhang, R. <b>NAO-type AMOC response sensitivity to resolution</b>. <i>In prep.</i></li>
+        <li>Joshi, R., Borah P.J., and Venugopal, V. <b>Interhemispherical footprint on Indian monsoon floods</b>. <i>In prep.</i></li>
       </ul>
 
-      <!-- Presentations Subheading -->
       <h3>Presentations</h3>
       <ul class="presentations">
-        <li>Joshi, R. and Zhang, R. On the Atlantic extratropical-tropical teleconnection associated with the AMOC weakening. EGU Meeting, (2025), AGU Fall Meeting, (2024) <a href="link-to-presentation" target="_blank">(Link)</a></li>
-        <li>Venugopal, V., Joshi, R., and Borah P.J. Interhemispherical footprint on Indian monsoon floods. AOGS, (2024)</li>
-        <li>Joshi, R. and Zhang, R. Wintertime Atmospheric Response over the Extratropical North Pacific to the North Atlantic Biases. Ocean Sciences Meeting, (2024) [Poster] <a href="link-to-poster" target="_blank">(Link)</a> and AGU Fall Meeting, (2023) [Poster] <a href="link-to-poster" target="_blank">(Link)</a></li>
-        <li>Joshi, R., Borah P.J., and Venugopal, V. Two Distinct Types of Indian Monsoon Floods and their Subseasonal Evolution. AGU Fall Meeting, (2021) [Oral Presentation] <a href="link-to-presentation" target="_blank">(Link)</a></li>
-        <li>Joshi, R., Borah P.J., and Venugopal, V. Subseasonal Characteristics of Rainfall during Indian Monsoon Floods. International Symposium on Tropical Meteorology, (2021)</li>
+        <li>Joshi, R. and Zhang, R. <b>Atlantic–tropical teleconnection & AMOC weakening</b>, EGU 2025, AGU Fall 2024</li>
+        <li>Venugopal, V., Joshi, R., Borah, P.J. <b>Monsoon floods & interhemispheric forcing</b>, AOGS 2024</li>
+        <li>Joshi, R. and Zhang, R. <b>Winter atmospheric response to Atlantic biases</b>, Ocean Sciences 2024 [Poster], AGU Fall 2023 [Poster]</li>
+        <li>Joshi, R., Borah, P.J., Venugopal, V. <b>Subseasonal evolution of Indian floods</b>, AGU Fall 2021 [Oral]</li>
+        <li>Joshi, R., Borah, P.J., Venugopal, V. <b>Rainfall variability in flood years</b>, International Symposium on Tropical Meteorology 2021</li>
       </ul>
 
-      <!-- CV Download Link -->
       <div class="cv-link">
-        <a href="path-to-your-cv.pdf" target="_blank">Download My Detailed CV (PDF)</a>
+        <a href="your-cv.pdf" target="_blank">Download Full CV (PDF)</a>
       </div>
     </div>
 
-<div id="research" class="tab">
-  <h2>Research</h2>
-  <!-- Research Heading 1 -->
-  <h3>Remote Impacts of the North Atlantic Ocean Biases</h3>
-  <p>In this section, I explore how changes in the Atlantic Meridional Overturning Circulation (AMOC) influence the atmospheric and oceanic systems, particularly in the extratropical North Pacific region.</p>
-  <ul>
-     <li>Joshi, R. and Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific. <i>npj Climate and Atmospheric Science </i> <b>6</b>, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">https://doi.org/10.1038/s41612-023-00482-4</a></li>
-  </ul>
-</div>
-</
+    <!-- Research Tab -->
+    <div id="research" class="tab">
+      <h2>Research</h2>
+      <h3>Remote Climate Impacts of Atlantic Ocean Biases</h3>
+      <p>The North Atlantic biases in coupled climate models significantly impact the atmospheric circulation in remote regions. In particular, this research explores how these biases influence the upper troposphere and lower stratosphere over the extratropical North Pacific. By altering storm track dynamics and eddy-driven jet structures, these changes can propagate through the entire climate system.</p>
+      <p>We demonstrate a clear pathway linking AMOC strength to Pacific atmospheric variability through both observational constraints and numerical simulations. Our published work (2023) highlights the upper-level wave response and implications for stratosphere–troposphere coupling.</p>
+      <ul>
+        <li>Joshi, R. and Zhang, R. (2023). <i>npj Clim Atmos Sci</i> 6, 151. <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">Read the paper</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
