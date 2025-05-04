@@ -15,9 +15,9 @@
 
   <style>
     :root {
-      --clr-primary: #2c3e50; /* Dark navy blue */
-      --clr-accent: #2980b9; /* Lighter blue */
-      --clr-bg: #f4f6f9; /* Off-white/cream background */
+      --clr-primary: #00b8a9; /* Fresh teal color */
+      --clr-accent: #ff7f50; /* Coral */
+      --clr-bg: #f9fafb; /* Very light gray background */
       --clr-light: #ffffff;
       --clr-dark: #333333;
       --clr-text-light: #ecf0f1; /* Light text color */
@@ -82,23 +82,30 @@
       border: none; /* Removed background color and border */
     }
 
+    /* Scrollable tabs styling */
     .tabs {
       display: flex;
-      justify-content: center;
+      gap: var(--space-xs);
+      overflow-x: auto; /* Enable horizontal scroll */
+      white-space: nowrap; /* Prevent wrapping */
+      padding: var(--space-sm);
       margin-top: var(--space-md);
+      background-color: var(--clr-light);
+      border-radius: var(--radius);
     }
 
     .tabs label {
       background: var(--clr-accent);
       color: var(--clr-light);
       padding: var(--space-sm) var(--space-md);
-      margin: 0 var(--space-xs);
-      border-radius: var(--radius) var(--radius) 0 0;
+      margin-right: var(--space-sm);
+      border-radius: var(--radius);
       cursor: pointer;
       transition: background .3s;
+      white-space: nowrap; /* Prevent text wrapping */
     }
 
-    .tabs label:hover { background: #21618c; }
+    .tabs label:hover { background: #ff6347; } /* Lighter coral on hover */
 
     input[type=radio] { display: none; }
 
