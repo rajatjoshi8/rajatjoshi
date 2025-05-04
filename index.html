@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rajat Joshi - Academic Website</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0 auto;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
       padding: 20px;
-      max-width: 1000px;
-      background-color: #f4f4f4;
+      background: linear-gradient(135deg, #f0f4f8, #e6eff1);
+      color: #333;
     }
 
     header {
       text-align: center;
-      padding-bottom: 20px;
+      padding-bottom: 30px;
+      background-color: #0c5f8c;
+      color: white;
+      padding: 20px 0;
+      border-radius: 8px;
     }
 
     h1 {
-      color: #222;
-      margin-bottom: 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5em;
+      color: #fff;
+      margin: 0;
     }
 
     .contact {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      align-items: center;
+      gap: 20px;
       flex-wrap: wrap;
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
 
-    .contact a {
+    .contact a, .contact span {
       text-decoration: none;
-      color: #333;
+      color: #fff;
     }
 
     .contact i {
-      font-size: 1.3em;
-      color: #333;
+      font-size: 1.5em;
+      transition: color 0.3s ease;
+    }
+
+    .contact i:hover {
+      color: #007bff;
     }
 
     .profile-photo {
@@ -49,7 +63,7 @@
       border-radius: 50%;
       margin: 20px auto;
       display: block;
-      border: 3px solid #ccc;
+      border: 3px solid #f1f1f1;
     }
 
     nav {
@@ -59,11 +73,17 @@
     }
 
     nav label {
-      background-color: #e0e0e0;
-      padding: 10px 20px;
+      background-color: #007bff;
+      padding: 12px 20px;
       margin: 0 5px;
       cursor: pointer;
       border-radius: 5px 5px 0 0;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    nav label:hover {
+      background-color: #0056b3;
     }
 
     input[type="radio"] {
@@ -76,7 +96,8 @@
       background-color: white;
       border: 1px solid #ccc;
       border-top: none;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     #tab1:checked ~ .content #home,
@@ -85,47 +106,67 @@
       display: block;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    .cv-link {
-      display: block;
-      margin-top: 30px;
-      text-align: center;
-      font-size: 1.2em;
+    .content {
+      margin-top: 20px;
     }
 
     .cv-link a {
+      color: #007bff;
+      font-size: 1.2em;
       text-decoration: none;
-      color: #333;
-      font-weight: bold;
     }
 
     .cv-link a:hover {
-      color: #007bff;
+      text-decoration: underline;
     }
 
-    .publications li,
-    .presentations li {
+    h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    .education {
+      margin-bottom: 30px;
+    }
+
+    .education div {
       margin-bottom: 15px;
     }
 
-    .publications a,
-    .presentations a {
+    .education div strong {
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .education div span {
+      font-size: 1em;
+      color: #777;
+    }
+
+    .education div i {
+      font-style: italic;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    ul li a {
       color: #007bff;
       text-decoration: none;
     }
 
-    .publications a:hover,
-    .presentations a:hover {
+    ul li a:hover {
       text-decoration: underline;
     }
 
-    .education-entry {
-      margin-bottom: 30px;
-      line-height: 1.3;
-    }
   </style>
 </head>
 <body>
@@ -135,9 +176,9 @@
     <h1>Rajat Joshi</h1>
     <div class="contact">
       <a href="mailto:rajatjoshi@princeton.edu" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://github.com/yourusername" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/yourprofile" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
     </div>
   </header>
 
@@ -153,91 +194,73 @@
   </nav>
 
   <div class="content">
-    <!-- Home Tab -->
     <div id="home" class="tab">
       <h2>Welcome</h2>
       <p>Hello! I’m <strong>Rajat Joshi</strong>, a Ph.D. candidate in Atmospheric and Oceanic Sciences at Princeton University, advised by <strong>Dr. Rong Zhang</strong>.</p>
-      <p>My research focuses on climate dynamics, especially the remote impacts of oceanic variability like the AMOC on atmospheric circulation, tropical climate, and extreme rainfall events like the Indian Monsoon floods.</p>
+      <p>My research interest is broadly in climate dynamics. I have worked on projects related to the impacts of the weakening of AMOC on remote climate, coupled ocean-atmosphere interactions, tropical dynamics and Indian Monsoon Rainfall, and extreme weather events (hurricanes and storm tracks). I am always open to and interested in working on exciting problems beyond my current research interest.</p>
     </div>
 
-    <!-- CV Tab -->
     <div id="cv" class="tab">
       <h2>CV</h2>
 
-      <h3>Education</h3>
-     <div style="font-size: 16px; line-height: 1.6;">
+      <div class="education">
+        <!-- Education -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong>
+            <span>2021 – Present (<i>expected Spring 2026</i>)</span>
+          </div>
+          <div style="margin-left: 2px; margin-bottom: 6px;">
+            Princeton University, Princeton, NJ, USA
+          </div>
+          <div style="margin-left: 2px;">
+            <i>Advisor:</i> Dr. Rong Zhang<br>
+            <i>Committee Members:</i> Drs. Leo Donner, Ming Zhao, and David Paynter
+          </div>
+        </div>
 
-  <!-- Entry 1: PhD -->
-  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-    <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong>
-    <span>2021 – Present (<i>expected Spring 2026</i>)</span>
-  </div>
-  <div style="margin-left: 2px; margin-bottom: 5px;">
-    Princeton University, Princeton, NJ, USA
-  </div>
-  <div style="margin-left: 2px; margin-bottom: 15px;">
-    <i>Advisor:</i> Dr. Rong Zhang<br>
-    <i>Committee Members:</i> Drs. Leo Donner, Ming Zhao, and David Paynter
-  </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>Master of Technology (<i>with Distinction</i>) in Climate Science</strong>
+            <span>2019 – 2021</span>
+          </div>
+          <div style="margin-left: 2px; margin-bottom: 6px;">
+            Indian Institute of Science, Bangalore, India
+          </div>
+          <div style="margin-left: 2px;">
+            <i>Advisor:</i> Prof. V. Venugopal
+          </div>
+        </div>
 
-  <!-- Entry 2: M.Tech -->
-  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-    <strong>Master of Technology (<i>with Distinction</i>) in Climate Science</strong>
-    <span>2019 – 2021</span>
-  </div>
-  <div style="margin-left: 2px; margin-bottom: 6px;">
-    Indian Institute of Science, Bangalore, India
-  </div>
-  <div style="margin-left: 2px; margin-bottom: 20px;">
-    <i>Advisor:</i> Prof. V. Venugopal
-  </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong>Bachelor of Technology (<i>with Distinction</i>) in Mechanical Engineering</strong>
+            <span>2015 – 2019</span>
+          </div>
+          <div style="margin-left: 2px; margin-bottom: 6px;">
+            G.B. Pant University of Agriculture and Technology, Pantnagar, India
+          </div>
+        </div>
+      </div>
 
-  <!-- Entry 3: B.Tech -->
-  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
-    <strong>Bachelor of Technology (<i>with Distinction</i>) in Mechanical Engineering</strong>
-    <span>2015 – 2019</span>
-  </div>
-  <div style="margin-left: 2px; margin-bottom: 6px;">
-    G.B. Pant University of Agriculture and Technology, Pantnagar, India
-  </div>
-
-</div>
-
-
-
+      <!-- Publications -->
       <h3>Publications</h3>
-      <ul class="publications">
-        <li>Joshi, R. and Zhang, R. <b>Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere</b>. <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">DOI</a></li>
-        <li>Joshi, R. and Zhang, R. <b>Atlantic extratropical-tropical teleconnection due to freshwater forcing</b>. <i>Under review</i>, npj Clim Atmos Sci.</li>
-        <li>Joshi, R. and Zhang, R. <b>AMOC weakening impact on extratropical Pacific UTLS</b>. <i>In prep.</i></li>
-        <li>Joshi, R. and Zhang, R. <b>NAO-type AMOC response sensitivity to resolution</b>. <i>In prep.</i></li>
-        <li>Joshi, R., Borah P.J., and Venugopal, V. <b>Interhemispherical footprint on Indian monsoon floods</b>. <i>In prep.</i></li>
+      <ul>
+        <li>Joshi, R. and Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific. <i>npj Climate and Atmospheric Science</i> <b>6</b>, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">https://doi.org/10.1038/s41612-023-00482-4</a></li>
+        <li>Joshi, R. and Zhang, R. On the Atlantic extratropical-tropical teleconnection in response to external freshwater forcing. <b>in revision</b> <i>npj Climate and Atmospheric Science</i> (2025).</li>
       </ul>
 
-      <h3>Presentations</h3>
-      <ul class="presentations">
-        <li>Joshi, R. and Zhang, R. <b>Atlantic–tropical teleconnection & AMOC weakening</b>, EGU 2025, AGU Fall 2024</li>
-        <li>Venugopal, V., Joshi, R., Borah, P.J. <b>Monsoon floods & interhemispheric forcing</b>, AOGS 2024</li>
-        <li>Joshi, R. and Zhang, R. <b>Winter atmospheric response to Atlantic biases</b>, Ocean Sciences 2024 [Poster], AGU Fall 2023 [Poster]</li>
-        <li>Joshi, R., Borah, P.J., Venugopal, V. <b>Subseasonal evolution of Indian floods</b>, AGU Fall 2021 [Oral]</li>
-        <li>Joshi, R., Borah, P.J., Venugopal, V. <b>Rainfall variability in flood years</b>, International Symposium on Tropical Meteorology 2021</li>
-      </ul>
-
+      <!-- CV Download Link -->
       <div class="cv-link">
-        <a href="your-cv.pdf" target="_blank">Download Full CV (PDF)</a>
+        <a href="path-to-your-cv.pdf" target="_blank">Download My Detailed CV (PDF)</a>
       </div>
     </div>
 
-    <!-- Research Tab -->
     <div id="research" class="tab">
       <h2>Research</h2>
-      <h3>Remote Climate Impacts of Atlantic Ocean Biases</h3>
-      <p>The North Atlantic biases in coupled climate models significantly impact the atmospheric circulation in remote regions. In particular, this research explores how these biases influence the upper troposphere and lower stratosphere over the extratropical North Pacific. By altering storm track dynamics and eddy-driven jet structures, these changes can propagate through the entire climate system.</p>
-      <p>We demonstrate a clear pathway linking AMOC strength to Pacific atmospheric variability through both observational constraints and numerical simulations. Our published work (2023) highlights the upper-level wave response and implications for stratosphere–troposphere coupling.</p>
-      <ul>
-        <li>Joshi, R. and Zhang, R. (2023). <i>npj Clim Atmos Sci</i> 6, 151. <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">Read the paper</a></li>
-      </ul>
+      <p>Research content goes here...</p>
     </div>
   </div>
+
 </body>
 </html>
