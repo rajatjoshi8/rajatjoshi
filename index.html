@@ -2,265 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajat Joshi - Academic Website</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rajat Joshi – Academic Portfolio</title>
+
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
+    /* Theme Variables */
+    :root {
+      --clr-primary: #0c5f8c;
+      --clr-accent: #007bff;
+      --clr-bg: #f0f4f8;
+      --clr-light: #ffffff;
+      --clr-dark: #333333;
+      --fs-base: 1rem;
+      --fs-lg: 1.25rem;
+      --fs-xl: 2rem;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --radius: 0.5rem;
+    }
+
+    /* Global Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: linear-gradient(135deg, #f0f4f8, #e6eff1);
-      color: #333;
+      font-size: var(--fs-base);
+      line-height: 1.6;
+      color: var(--clr-dark);
+      background: var(--clr-bg);
+      min-height: 100vh;
     }
+    img { display: block; max-width: 100%; height: auto; }
 
+    /* Header */
     header {
+      background: var(--clr-primary);
+      color: var(--clr-light);
       text-align: center;
-      padding-bottom: 30px;
-      background-color: #0c5f8c;
-      color: white;
-      padding: 20px 0;
-      border-radius: 8px;
+      padding: var(--space-lg) var(--space-sm);
+      border-radius: var(--radius);
     }
-
-    h1 {
+    header h1 {
       font-family: 'Roboto', sans-serif;
-      font-size: 2.5em;
-      color: #fff;
-      margin: 0;
+      font-size: var(--fs-xl);
+      margin-bottom: var(--space-xs);
     }
-
     .contact {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 1.2em;
+      gap: var(--space-sm);
     }
-
-    .contact a, .contact span {
-      text-decoration: none;
-      color: #fff;
+    .contact a {
+      color: var(--clr-light);
+      font-size: var(--fs-lg);
+      transition: color .3s;
     }
+    .contact a:hover { color: var(--clr-accent); }
 
-    .contact i {
-      font-size: 1.5em;
-      transition: color 0.3s ease;
-    }
-
-    .contact i:hover {
-      color: #007bff;
-    }
-
+    /* Profile Photo */
     .profile-photo {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin: 20px auto;
-      display: block;
-      border: 3px solid #f1f1f1;
+      object-fit: cover;
+      border: 3px solid var(--clr-light);
+      margin: var(--space-sm) auto;
     }
 
-    nav {
+    /* Navigation Tabs */
+    .tabs {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-top: var(--space-md);
     }
-
-    nav label {
-      background-color: #007bff;
-      padding: 12px 20px;
-      margin: 0 5px;
+    .tabs label {
+      background: var(--clr-accent);
+      color: var(--clr-light);
+      padding: var(--space-sm) var(--space-md);
+      margin: 0 var(--space-xs);
+      border-radius: var(--radius) var(--radius) 0 0;
       cursor: pointer;
-      border-radius: 5px 5px 0 0;
-      color: white;
-      transition: background-color 0.3s ease;
+      transition: background .3s;
     }
+    .tabs label:hover { background: darken(var(--clr-accent),10%); }
+    input[type=radio] { display: none; }
 
-    nav label:hover {
-      background-color: #0056b3;
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-
+    /* Tab Panels */
+    .content { margin-top: -1px; }
     .tab {
       display: none;
-      padding: 20px;
-      background-color: white;
+      background: var(--clr-light);
+      padding: var(--space-md);
       border: 1px solid #ccc;
       border-top: none;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: 0 auto var(--space-lg);
     }
-
-    #tab1:checked ~ .content #home,
-    #tab2:checked ~ .content #cv,
-    #tab3:checked ~ .content #research {
+    #homeTab:checked ~ .tabs label[for="homeTab"],
+    #cvTab:checked   ~ .tabs label[for="cvTab"],
+    #resTab:checked  ~ .tabs label[for="resTab"] {
+      background: var(--clr-primary);
+    }
+    #homeTab:checked ~ .content #home,
+    #cvTab:checked   ~ .content #cv,
+    #resTab:checked  ~ .content #research {
       display: block;
     }
 
-    .content {
-      margin-top: 20px;
-    }
+    /* Section Styling */
+    h2 { font-size: var(--fs-xl); margin-bottom: var(--space-sm); }
+    h3 { font-size: var(--fs-lg); margin-bottom: var(--space-xs); color: var(--clr-primary); }
+    p + p { margin-top: var(--space-sm); }
+    ul { margin-top: var(--space-sm); padding-left: var(--space-md); }
+    li { margin-bottom: var(--space-xs); }
 
-    .cv-link a {
-      color: #007bff;
-      font-size: 1.2em;
-      text-decoration: none;
+    /* Education Entry */
+    .edu-entry {
+      margin-bottom: var(--space-lg);
     }
-
-    .cv-link a:hover {
-      text-decoration: underline;
+    .edu-entry .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: var(--space-sm);
     }
+    .edu-entry .header strong { font-size: var(--fs-base); }
+    .edu-entry .header span  { font-size: var(--fs-base); color: var(--clr-dark); }
+    .edu-entry .details { margin-left: var(--space-sm); color: #555; }
+    .edu-entry .details p { margin-bottom: var(--space-xs); }
 
-    h3 {
-      color: #333;
-      margin-bottom: 15px;
-      font-size: 1.5em;
+    /* Responsive */
+    @media (max-width: 600px) {
+      .edu-entry .header {
+        grid-template-columns: 1fr;
+        row-gap: var(--space-xs);
+      }
     }
-
-    .education {
-      margin-bottom: 30px;
-    }
-
-    .education div {
-      margin-bottom: 15px;
-    }
-
-    .education div strong {
-      font-size: 1.2em;
-      color: #333;
-    }
-
-    .education div span {
-      font-size: 1em;
-      color: #777;
-    }
-
-    .education div i {
-      font-style: italic;
-      color: #555;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-    }
-
-    ul li a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    ul li a:hover {
-      text-decoration: underline;
-    }
-
   </style>
 </head>
+
 <body>
 
   <header>
-    <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" />
+    <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" loading="lazy">
     <h1>Rajat Joshi</h1>
     <div class="contact">
-      <a href="mailto:rajatjoshi@princeton.edu" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/yourusername" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/yourprofile" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ&hl=en" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="mailto:rajatjoshi@princeton.edu"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin"></i></a>
+      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ"><i class="fas fa-graduation-cap"></i></a>
     </div>
   </header>
 
   <!-- Tabs -->
-  <input type="radio" name="tabs" id="tab1" checked>
-  <input type="radio" name="tabs" id="tab2">
-  <input type="radio" name="tabs" id="tab3">
+  <input type="radio" name="tabset" id="homeTab" checked>
+  <input type="radio" name="tabset" id="cvTab">
+  <input type="radio" name="tabset" id="resTab">
 
-  <nav>
-    <label for="tab1">Home</label>
-    <label for="tab2">CV</label>
-    <label for="tab3">Research</label>
+  <nav class="tabs" role="tablist">
+    <label for="homeTab" role="tab" aria-controls="home">Home</label>
+    <label for="cvTab"   role="tab" aria-controls="cv">CV</label>
+    <label for="resTab"  role="tab" aria-controls="research">Research</label>
   </nav>
 
-  <div class="content">
-    <div id="home" class="tab">
+  <main class="content">
+    <section id="home" class="tab" role="tabpanel">
       <h2>Welcome</h2>
-      <p>Hello! I’m <strong>Rajat Joshi</strong>, a Ph.D. candidate in Atmospheric and Oceanic Sciences at Princeton University, advised by <strong>Dr. Rong Zhang</strong>.</p>
-      <p>My research interest is broadly in climate dynamics. I have worked on projects related to the impacts of the weakening of AMOC on remote climate, coupled ocean-atmosphere interactions, tropical dynamics and Indian Monsoon Rainfall, and extreme weather events (hurricanes and storm tracks). I am always open to and interested in working on exciting problems beyond my current research interest.</p>
-    </div>
+      <p>Hello! I’m <strong>Rajat Joshi</strong>, Ph.D. candidate in Atmospheric & Oceanic Sciences at Princeton University under Dr. Rong Zhang.</p>
+      <p>My interests: climate dynamics, ocean–atmosphere coupling, the AMOC’s remote impacts, and extreme monsoon events.</p>
+    </section>
 
-    <div id="cv" class="tab">
-      <h2>CV</h2>
+    <section id="cv" class="tab" role="tabpanel">
+      <h2>Curriculum Vitae</h2>
 
-      <div class="education">
-        <!-- Education -->
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline;">
-            <strong>Ph.D. in Atmospheric and Oceanic Sciences</strong>
-            <span>2021 – Present (<i>expected Spring 2026</i>)</span>
-          </div>
-          <div style="margin-left: 2px; margin-bottom: 6px;">
-            Princeton University, Princeton, NJ, USA
-          </div>
-          <div style="margin-left: 2px;">
-            <i>Advisor:</i> Dr. Rong Zhang<br>
-            <i>Committee Members:</i> Drs. Leo Donner, Ming Zhao, and David Paynter
-          </div>
+      <div class="edu-entry">
+        <div class="header">
+          <strong>Ph.D. in Atmospheric & Oceanic Sciences</strong>
+          <span>2021 – Present (<i>expected Spring 2026</i>)</span>
         </div>
-
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline;">
-            <strong>Master of Technology (<i>with Distinction</i>) in Climate Science</strong>
-            <span>2019 – 2021</span>
-          </div>
-          <div style="margin-left: 2px; margin-bottom: 6px;">
-            Indian Institute of Science, Bangalore, India
-          </div>
-          <div style="margin-left: 2px;">
-            <i>Advisor:</i> Prof. V. Venugopal
-          </div>
-        </div>
-
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline;">
-            <strong>Bachelor of Technology (<i>with Distinction</i>) in Mechanical Engineering</strong>
-            <span>2015 – 2019</span>
-          </div>
-          <div style="margin-left: 2px; margin-bottom: 6px;">
-            G.B. Pant University of Agriculture and Technology, Pantnagar, India
-          </div>
+        <div class="details">
+          <p>Princeton University, Princeton, NJ, USA</p>
+          <p><i>Advisor:</i> Dr. Rong Zhang</p>
+          <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
         </div>
       </div>
 
-      <!-- Publications -->
+      <div class="edu-entry">
+        <div class="header">
+          <strong>M.Tech in Climate Science</strong>
+          <span>2019 – 2021</span>
+        </div>
+        <div class="details">
+          <p>Indian Institute of Science, Bangalore, India</p>
+          <p><i>Advisor:</i> Prof. V. Venugopal</p>
+        </div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="header">
+          <strong>B.Tech in Mechanical Engineering</strong>
+          <span>2015 – 2019</span>
+        </div>
+        <div class="details">
+          <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India</p>
+        </div>
+      </div>
+
       <h3>Publications</h3>
       <ul>
-        <li>Joshi, R. and Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific. <i>npj Climate and Atmospheric Science</i> <b>6</b>, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank">https://doi.org/10.1038/s41612-023-00482-4</a></li>
-        <li>Joshi, R. and Zhang, R. On the Atlantic extratropical-tropical teleconnection in response to external freshwater forcing. <b>in revision</b> <i>npj Climate and Atmospheric Science</i> (2025).</li>
+        <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases …” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
+        <!-- more items… -->
       </ul>
 
-      <!-- CV Download Link -->
-      <div class="cv-link">
-        <a href="path-to-your-cv.pdf" target="_blank">Download My Detailed CV (PDF)</a>
-      </div>
-    </div>
+      <h3>Presentations</h3>
+      <ul>
+        <li>EGU 2025, AGU 2024 – “Atlantic–Tropical Teleconnection & AMOC Weakening”</li>
+        <!-- more items… -->
+      </ul>
 
-    <div id="research" class="tab">
-      <h2>Research</h2>
-      <p>Research content goes here...</p>
-    </div>
-  </div>
+      <div class="cv-link">
+        <a href="your-cv.pdf" download>Download Full CV (PDF)</a>
+      </div>
+    </section>
+
+    <section id="research" class="tab" role="tabpanel">
+      <h2>Research Highlights</h2>
+      <p>Deep dives into how Atlantic biases shape extratropical circulation, jet streams, and monsoon variability. Explore projects, figures, and preprints below.</p>
+      <!-- You can add figure/text blocks here -->
+    </section>
+  </main>
 
 </body>
 </html>
