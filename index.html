@@ -15,11 +15,12 @@
 
   <style>
     :root {
-      --clr-primary: #0c5f8c;
-      --clr-accent: #007bff;
-      --clr-bg: #f0f4f8;
+      --clr-primary: #2c3e50; /* Dark navy blue */
+      --clr-accent: #2980b9; /* Lighter blue */
+      --clr-bg: #f4f6f9; /* Off-white/cream background */
       --clr-light: #ffffff;
       --clr-dark: #333333;
+      --clr-text-light: #ecf0f1; /* Light text color */
       --fs-base: 1rem;
       --fs-lg: 1.25rem;
       --fs-xl: 2rem;
@@ -29,7 +30,9 @@
       --space-lg: 2rem;
       --radius: 0.5rem;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
     body {
       font-family: 'Open Sans', sans-serif;
       font-size: var(--fs-base);
@@ -38,6 +41,7 @@
       background: var(--clr-bg);
       padding: var(--space-sm);
     }
+
     img { display: block; max-width: 100%; height: auto; }
 
     header {
@@ -47,22 +51,26 @@
       padding: var(--space-lg) 0;
       border-radius: var(--radius);
     }
+
     header h1 {
       font-family: 'Roboto', sans-serif;
       font-size: var(--fs-xl);
       margin-bottom: var(--space-xs);
     }
+
     .contact {
       display: flex;
       justify-content: center;
       gap: var(--space-sm);
       margin-top: var(--space-sm);
     }
+
     .contact a {
       color: var(--clr-light);
       font-size: var(--fs-lg);
       transition: color .3s;
     }
+
     .contact a:hover { color: var(--clr-accent); }
 
     .profile-photo {
@@ -79,6 +87,7 @@
       justify-content: center;
       margin-top: var(--space-md);
     }
+
     .tabs label {
       background: var(--clr-accent);
       color: var(--clr-light);
@@ -88,10 +97,13 @@
       cursor: pointer;
       transition: background .3s;
     }
-    .tabs label:hover { background: #0056b3; }
+
+    .tabs label:hover { background: #21618c; }
+
     input[type=radio] { display: none; }
 
     .content { margin-top: -1px; }
+
     .tab {
       display: none;
       background: var(--clr-light);
@@ -103,11 +115,13 @@
       max-width: 900px;
       margin: 0 auto var(--space-lg);
     }
+
     #homeTab:checked ~ .tabs label[for="homeTab"],
     #cvTab:checked   ~ .tabs label[for="cvTab"],
     #resTab:checked  ~ .tabs label[for="resTab"] {
       background: var(--clr-primary);
     }
+
     #homeTab:checked ~ .content #home,
     #cvTab:checked   ~ .content #cv,
     #resTab:checked  ~ .content #research {
@@ -125,16 +139,19 @@
     .edu-entry {
       margin-bottom: var(--space-lg);
     }
+
     .edu-entry .header {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: baseline;
       gap: var(--space-sm);
     }
+
     .edu-entry .details { margin-left: var(--space-sm); color: #555; }
     .edu-entry .details p { margin-bottom: var(--space-xs); }
 
     .cv-link { text-align: center; margin-top: var(--space-md); }
+
   </style>
 </head>
 <body>
