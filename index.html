@@ -10,8 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
   <style>
-    /* Theme Variables */
     :root {
       --clr-primary: #0c5f8c;
       --clr-accent: #007bff;
@@ -27,8 +29,6 @@
       --space-lg: 2rem;
       --radius: 0.5rem;
     }
-
-    /* Global Reset & Base */
     *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
     body {
       font-family: 'Open Sans', sans-serif;
@@ -36,16 +36,15 @@
       line-height: 1.6;
       color: var(--clr-dark);
       background: var(--clr-bg);
-      min-height: 100vh;
+      padding: var(--space-sm);
     }
     img { display: block; max-width: 100%; height: auto; }
 
-    /* Header */
     header {
       background: var(--clr-primary);
       color: var(--clr-light);
       text-align: center;
-      padding: var(--space-lg) var(--space-sm);
+      padding: var(--space-lg) 0;
       border-radius: var(--radius);
     }
     header h1 {
@@ -57,6 +56,7 @@
       display: flex;
       justify-content: center;
       gap: var(--space-sm);
+      margin-top: var(--space-sm);
     }
     .contact a {
       color: var(--clr-light);
@@ -65,17 +65,15 @@
     }
     .contact a:hover { color: var(--clr-accent); }
 
-    /* Profile Photo */
     .profile-photo {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--clr-light);
-      margin: var(--space-sm) auto;
+      margin: 0 auto var(--space-sm);
     }
 
-    /* Navigation Tabs */
     .tabs {
       display: flex;
       justify-content: center;
@@ -90,10 +88,9 @@
       cursor: pointer;
       transition: background .3s;
     }
-    .tabs label:hover { background: darken(var(--clr-accent),10%); }
+    .tabs label:hover { background: #0056b3; }
     input[type=radio] { display: none; }
 
-    /* Tab Panels */
     .content { margin-top: -1px; }
     .tab {
       display: none;
@@ -117,14 +114,14 @@
       display: block;
     }
 
-    /* Section Styling */
     h2 { font-size: var(--fs-xl); margin-bottom: var(--space-sm); }
     h3 { font-size: var(--fs-lg); margin-bottom: var(--space-xs); color: var(--clr-primary); }
     p + p { margin-top: var(--space-sm); }
     ul { margin-top: var(--space-sm); padding-left: var(--space-md); }
     li { margin-bottom: var(--space-xs); }
+    a { color: var(--clr-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* Education Entry */
     .edu-entry {
       margin-bottom: var(--space-lg);
     }
@@ -134,31 +131,29 @@
       align-items: baseline;
       gap: var(--space-sm);
     }
-    .edu-entry .header strong { font-size: var(--fs-base); }
-    .edu-entry .header span  { font-size: var(--fs-base); color: var(--clr-dark); }
     .edu-entry .details { margin-left: var(--space-sm); color: #555; }
     .edu-entry .details p { margin-bottom: var(--space-xs); }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      .edu-entry .header {
-        grid-template-columns: 1fr;
-        row-gap: var(--space-xs);
-      }
-    }
+    .cv-link { text-align: center; margin-top: var(--space-md); }
   </style>
 </head>
-
 <body>
 
   <header>
     <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" loading="lazy">
     <h1>Rajat Joshi</h1>
     <div class="contact">
-      <a href="mailto:rajatjoshi@princeton.edu"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin"></i></a>
-      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ"><i class="fas fa-graduation-cap"></i></a>
+      <!-- Email -->
+      <a href="mailto:rajatjoshi@princeton.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/yourusername" aria-label="GitHub"><i class="fab fa-github"></i></a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+
+      <!-- Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
     </div>
   </header>
 
@@ -167,26 +162,26 @@
   <input type="radio" name="tabset" id="cvTab">
   <input type="radio" name="tabset" id="resTab">
 
-  <nav class="tabs" role="tablist">
-    <label for="homeTab" role="tab" aria-controls="home">Home</label>
-    <label for="cvTab"   role="tab" aria-controls="cv">CV</label>
-    <label for="resTab"  role="tab" aria-controls="research">Research</label>
+  <nav class="tabs">
+    <label for="homeTab">Home</label>
+    <label for="cvTab">CV</label>
+    <label for="resTab">Research</label>
   </nav>
 
   <main class="content">
-    <section id="home" class="tab" role="tabpanel">
+    <section id="home" class="tab">
       <h2>Welcome</h2>
       <p>Hello! I’m <strong>Rajat Joshi</strong>, Ph.D. candidate in Atmospheric & Oceanic Sciences at Princeton University under Dr. Rong Zhang.</p>
       <p>My interests: climate dynamics, ocean–atmosphere coupling, the AMOC’s remote impacts, and extreme monsoon events.</p>
     </section>
 
-    <section id="cv" class="tab" role="tabpanel">
+    <section id="cv" class="tab">
       <h2>Curriculum Vitae</h2>
 
       <div class="edu-entry">
         <div class="header">
           <strong>Ph.D. in Atmospheric & Oceanic Sciences</strong>
-          <span>2021 – Present (<i>expected Spring 2026</i>)</span>
+          <span>2021–Present (<i>expected Spring 2026</i>)</span>
         </div>
         <div class="details">
           <p>Princeton University, Princeton, NJ, USA</p>
@@ -197,8 +192,8 @@
 
       <div class="edu-entry">
         <div class="header">
-          <strong>M.Tech in Climate Science</strong>
-          <span>2019 – 2021</span>
+          <strong>M.Tech in Climate Science (<i>Distinction</i>)</strong>
+          <span>2019–2021</span>
         </div>
         <div class="details">
           <p>Indian Institute of Science, Bangalore, India</p>
@@ -208,8 +203,8 @@
 
       <div class="edu-entry">
         <div class="header">
-          <strong>B.Tech in Mechanical Engineering</strong>
-          <span>2015 – 2019</span>
+          <strong>B.Tech in Mechanical Engineering (<i>Distinction</i>)</strong>
+          <span>2015–2019</span>
         </div>
         <div class="details">
           <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India</p>
@@ -218,14 +213,8 @@
 
       <h3>Publications</h3>
       <ul>
-        <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases …” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
-        <!-- more items… -->
-      </ul>
-
-      <h3>Presentations</h3>
-      <ul>
-        <li>EGU 2025, AGU 2024 – “Atlantic–Tropical Teleconnection & AMOC Weakening”</li>
-        <!-- more items… -->
+        <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases…” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
+        <!-- more… -->
       </ul>
 
       <div class="cv-link">
@@ -233,10 +222,9 @@
       </div>
     </section>
 
-    <section id="research" class="tab" role="tabpanel">
+    <section id="research" class="tab">
       <h2>Research Highlights</h2>
-      <p>Deep dives into how Atlantic biases shape extratropical circulation, jet streams, and monsoon variability. Explore projects, figures, and preprints below.</p>
-      <!-- You can add figure/text blocks here -->
+      <p>Here you can showcase figure+text blocks, categorize by topic, and link to your papers.</p>
     </section>
   </main>
 
