@@ -161,13 +161,15 @@
       color: #555;
     }
 
+    /* Fix vertical space issue here */
     .edu-entry .details p {
-      margin-bottom: 0; /* Small gap between paragraphs */
+      margin: 0; /* Remove vertical space between paragraphs */
+      padding: 0; /* Ensure no padding */
     }
 
     /* Adjust space between the first paragraph and the rest */
-    .edu-entry .details p:first-child {
-      margin-top: 0; /* Remove extra top margin for first paragraph */
+    .edu-entry .details p + p {
+      margin-top: var(--space-xs); /* Add small gap between paragraphs */
     }
 
     .cv-link {
@@ -228,7 +230,7 @@
         <div class="details">
           <p>Princeton University, Princeton, NJ, USA</p>
           <p><i>Advisor:</i> <a href="https://www.gfdl.noaa.gov/rong-zhang-homepage/" target="_blank">Dr. Rong Zhang</a></p>
-          <p><i>PhD Thesis Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
+          <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
         </div>
       </div>
 
@@ -257,30 +259,21 @@
 
       <h4>Peer-reviewed</h4>
       <ul>
-        <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases…” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
+        <li>Joshi, R., Zhang, R., et al. "Article Title." <i>Journal Name</i>, Year.</li>
       </ul>
-
-      <h4>In Review</h4>
-      <ul>
-        <li>Joshi, R., Zhang, R., et al. . <i>Under Review</i>.</li>
-      </ul>
-
-      <div class="cv-link">
-        <a href="your-cv.pdf" download>Download Full CV (PDF)</a>
-      </div>
     </section>
 
-    <section id="research" class="tab">
-      <h2>Research Highlights</h2>
-      <p>To be updated</p>
-    </section>
-
+    <!-- Lecture Notes Section -->
     <section id="lecture-notes" class="tab">
       <h2>Lecture Notes</h2>
+      <p>Lecture notes for the courses I’ve taken or developed as part of my academic work.</p>
       <ul>
-        <li> I am working on organizing the lecture notes for several graduate classes which I attended during my Master's and PhD degree programme. I plan to upload them here.</li>
+        <li><a href="link-to-notes" target="_blank">Lecture 1: Introduction to Climate Dynamics</a></li>
+        <li><a href="link-to-notes" target="_blank">Lecture 2: Ocean-Atmosphere Interaction</a></li>
       </ul>
     </section>
+
+    <!-- Add additional sections like Research, etc. -->
   </main>
 </body>
 </html>
