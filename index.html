@@ -125,13 +125,15 @@
 
     #homeTab:checked ~ .tabs label[for="homeTab"],
     #cvTab:checked ~ .tabs label[for="cvTab"],
-    #resTab:checked ~ .tabs label[for="resTab"] {
+    #resTab:checked ~ .tabs label[for="resTab"],
+    #LectureNotesTab:checked ~ .tabs label[for="LectureNotesTab"] {
       background: var(--clr-primary);
     }
 
     #homeTab:checked ~ .content #home,
     #cvTab:checked ~ .content #cv,
-    #resTab:checked ~ .content #research {
+    #resTab:checked ~ .content #research,
+    #LectureNotesTab:checked ~ .content #lecture-notes {
       display: block;
     }
 
@@ -160,12 +162,12 @@
     }
 
     .edu-entry .details p {
-      margin-bottom: var(--space-xs);
+      margin-bottom: var(--space-xs); /* Small gap between paragraphs */
     }
 
-    /* Reduce space only between Advisor and Committee */
-    .edu-entry .details p:last-child {
-      margin-top: -0.25rem;
+    /* Adjust space between the first paragraph and the rest */
+    .edu-entry .details p:first-child {
+      margin-top: 0; /* Remove extra top margin for first paragraph */
     }
 
     .cv-link {
@@ -197,11 +199,13 @@
   <input type="radio" name="tabset" id="homeTab" checked />
   <input type="radio" name="tabset" id="cvTab" />
   <input type="radio" name="tabset" id="resTab" />
+  <input type="radio" name="tabset" id="LectureNotesTab" />
 
   <nav class="tabs">
     <label for="homeTab">Home</label>
     <label for="cvTab">CV</label>
     <label for="resTab">Research</label>
+    <label for="LectureNotesTab">Lecture Notes</label>
   </nav>
 
   <main class="content">
@@ -222,7 +226,8 @@
           <span>2021–Present (<i>expected Spring 2026</i>)</span>
         </div>
         <div class="details">
-          <p>Princeton University, Princeton, NJ, USA</p><p><i>Advisor:</i> <a href="https://www.gfdl.noaa.gov/rong-zhang-homepage/" target="_blank">Dr. Rong Zhang</a></p>
+          <p>Princeton University, Princeton, NJ, USA</p>
+          <p><i>Advisor:</i> <a href="https://www.gfdl.noaa.gov/rong-zhang-homepage/" target="_blank">Dr. Rong Zhang</a></p>
           <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
         </div>
       </div>
@@ -244,4 +249,38 @@
           <span>2015–2019</span>
         </div>
         <div class="details">
-          <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India
+          <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India</p>
+        </div>
+      </div>
+
+      <h3>Publications</h3>
+
+      <h4>Peer-reviewed</h4>
+      <ul>
+        <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases…” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
+      </ul>
+
+      <h4>In Review</h4>
+      <ul>
+        <li>Joshi, R., Zhang, R., et al. “North Atlantic SST anomalies and South Asian monsoon”. <i>Under Review</i>.</li>
+      </ul>
+
+      <div class="cv-link">
+        <a href="your-cv.pdf" download>Download Full CV (PDF)</a>
+      </div>
+    </section>
+
+    <section id="research" class="tab">
+      <h2>Research Highlights</h2>
+      <p>To be updated</p>
+    </section>
+
+    <section id="lecture-notes" class="tab">
+      <h2>Lecture Notes</h2>
+      <ul>
+        <li> I am working on organizing the lecture notes for several graduate classes which I attended during my Master's and PhD degree programme. I plan to upload them here.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
