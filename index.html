@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rajat Joshi – Academic Portfolio</title>
 
-  <!-- Preconnect & Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
   <style>
     :root {
@@ -32,7 +30,7 @@
       --radius: 0.5rem;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Open Sans', sans-serif;
@@ -70,7 +68,7 @@
     .contact a {
       color: var(--clr-light);
       font-size: var(--fs-lg);
-      transition: color .3s;
+      transition: color 0.3s;
     }
 
     .contact a:hover { color: var(--clr-accent); }
@@ -104,14 +102,14 @@
       padding: var(--space-sm) var(--space-md);
       border-radius: var(--radius);
       cursor: pointer;
-      transition: background .3s;
+      transition: background 0.3s;
       min-width: 120px;
       text-align: center;
     }
 
     .tabs label:hover { background: #ff6347; }
 
-    input[type=radio] { display: none; }
+    input[type="radio"] { display: none; }
 
     .content { margin-top: -1px; }
 
@@ -126,16 +124,16 @@
     }
 
     #homeTab:checked ~ .tabs label[for="homeTab"],
-    #cvTab:checked   ~ .tabs label[for="cvTab"],
-    #resTab:checked  ~ .tabs label[for="resTab"],
-    #Lecture NotesTab:checked ~ .tabs label[for="Lecture NotesTab"] {
+    #cvTab:checked ~ .tabs label[for="cvTab"],
+    #resTab:checked ~ .tabs label[for="resTab"],
+    #LectureNotesTab:checked ~ .tabs label[for="LectureNotesTab"] {
       background: var(--clr-primary);
     }
 
     #homeTab:checked ~ .content #home,
-    #cvTab:checked   ~ .content #cv,
-    #resTab:checked  ~ .content #research,
-    #Lecture NotesTab:checked ~ .content #Lecture Notes {
+    #cvTab:checked ~ .content #cv,
+    #resTab:checked ~ .content #research,
+    #LectureNotesTab:checked ~ .content #lecture-notes {
       display: block;
     }
 
@@ -158,10 +156,24 @@
       gap: var(--space-sm);
     }
 
-    .edu-entry .details { margin-left: var(--space-sm); color: #555; }
-    .edu-entry .details p { margin-bottom: var(--space-xs); }
+    .edu-entry .details {
+      margin-left: var(--space-sm);
+      color: #555;
+    }
 
-    .cv-link { text-align: center; margin-top: var(--space-md); }
+    .edu-entry .details p {
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Reduce space only between Advisor and Committee */
+    .edu-entry .details p:last-child {
+      margin-top: -0.25rem;
+    }
+
+    .cv-link {
+      text-align: center;
+      margin-top: var(--space-md);
+    }
 
     @media (max-width: 768px) {
       .tab {
@@ -172,9 +184,8 @@
   </style>
 </head>
 <body>
-
   <header>
-    <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" loading="lazy">
+    <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" loading="lazy" />
     <h1>Rajat Joshi</h1>
     <div class="contact">
       <a href="mailto:rajatjoshi@princeton.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -185,16 +196,16 @@
   </header>
 
   <!-- Tabs -->
-  <input type="radio" name="tabset" id="homeTab" checked>
-  <input type="radio" name="tabset" id="cvTab">
-  <input type="radio" name="tabset" id="resTab">
-  <input type="radio" name="tabset" id="Lecture NotesTab">
+  <input type="radio" name="tabset" id="homeTab" checked />
+  <input type="radio" name="tabset" id="cvTab" />
+  <input type="radio" name="tabset" id="resTab" />
+  <input type="radio" name="tabset" id="LectureNotesTab" />
 
   <nav class="tabs">
     <label for="homeTab">Home</label>
     <label for="cvTab">CV</label>
     <label for="resTab">Research</label>
-    <label for="Lecture NotesTab">Lecture Notes</label>
+    <label for="LectureNotesTab">Lecture Notes</label>
   </nav>
 
   <main class="content">
@@ -206,6 +217,7 @@
 
     <section id="cv" class="tab">
       <h2>Curriculum Vitae</h2>
+
       <div class="edu-entry">
         <div class="header">
           <strong>Ph.D. in Atmospheric & Oceanic Sciences</strong>
@@ -217,6 +229,7 @@
           <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
         </div>
       </div>
+
       <div class="edu-entry">
         <div class="header">
           <strong>M.Tech in Climate Science (<i>Distinction</i>)</strong>
@@ -227,6 +240,7 @@
           <p><i>Advisor:</i> Prof. V. Venugopal</p>
         </div>
       </div>
+
       <div class="edu-entry">
         <div class="header">
           <strong>B.Tech in Mechanical Engineering (<i>Distinction</i>)</strong>
@@ -236,10 +250,12 @@
           <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India</p>
         </div>
       </div>
+
       <h3>Publications</h3>
       <ul>
         <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases…” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
       </ul>
+
       <div class="cv-link">
         <a href="your-cv.pdf" download>Download Full CV (PDF)</a>
       </div>
@@ -250,13 +266,12 @@
       <p>To be updated</p>
     </section>
 
-    <section id="Lecture Notes" class="tab">
-      <h2>Lecture\:Lecture Notes</h2>
+    <section id="lecture-notes" class="tab">
+      <h2>Lecture Notes</h2>
       <ul>
-        <li><strong>2025-04-28:</strong> I am still working on organizing the lecture notes for many graduate classes which I attended during my Master's and PhD degree programme. I plan to upload them here. </li>
+        <li><strong>2025-04-28:</strong> I am still working on organizing the lecture notes for many graduate classes which I attended during my Master's and PhD degree programme. I plan to upload them here.</li>
       </ul>
     </section>
   </main>
-
 </body>
 </html>
