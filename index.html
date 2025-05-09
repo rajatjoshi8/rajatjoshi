@@ -10,17 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome CDN (Corrected) -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --clr-primary: #00b8a9; /* Fresh teal color */
-      --clr-accent: #ff7f50; /* Coral */
-      --clr-bg: #f9fafb; /* Very light gray background */
+      --clr-primary: #1c7c6c;
+      --clr-accent: #ff6b4a;
+      --clr-bg: #f9fafb;
       --clr-light: #ffffff;
       --clr-dark: #333333;
-      --clr-text-light: #ecf0f1; /* Light text color */
+      --clr-text-light: #ecf0f1;
       --fs-base: 1rem;
       --fs-lg: 1.25rem;
       --fs-xl: 2rem;
@@ -28,6 +28,7 @@
       --space-sm: 1rem;
       --space-md: 1.5rem;
       --space-lg: 2rem;
+      --space-xl: 3rem;
       --radius: 0.5rem;
     }
 
@@ -38,7 +39,7 @@
       font-size: var(--fs-base);
       line-height: 1.6;
       color: var(--clr-dark);
-      background: var(--clr-bg);
+      background: linear-gradient(to right, #f9fafb 0%, #f1f5f9 100%);
       padding: var(--space-sm);
     }
 
@@ -46,10 +47,11 @@
 
     header {
       background: var(--clr-primary);
-      color: var(--clr-light);
+      color: var(--clr-text-light);
       text-align: center;
-      padding: var(--space-lg) 0;
+      padding: var(--space-xl) var(--space-sm);
       border-radius: var(--radius);
+      min-height: 40vh;
     }
 
     header h1 {
@@ -79,33 +81,35 @@
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto var(--space-sm);
-      border: none; /* Removed background color and border */
     }
 
-    /* Scrollable tabs styling */
     .tabs {
       display: flex;
-      gap: var(--space-xs);
-      overflow-x: auto; /* Enable horizontal scroll */
-      white-space: nowrap; /* Prevent wrapping */
-      padding: var(--space-sm);
-      margin-top: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      overflow-x: auto;
+      padding: var(--space-sm) var(--space-md);
       background-color: var(--clr-light);
       border-radius: var(--radius);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
     .tabs label {
       background: var(--clr-accent);
       color: var(--clr-light);
       padding: var(--space-sm) var(--space-md);
-      margin-right: var(--space-sm);
       border-radius: var(--radius);
       cursor: pointer;
       transition: background .3s;
-      white-space: nowrap; /* Prevent text wrapping */
+      min-width: 120px;
+      text-align: center;
     }
 
-    .tabs label:hover { background: #ff6347; } /* Lighter coral on hover */
+    .tabs label:hover { background: #ff6347; }
 
     input[type=radio] { display: none; }
 
@@ -115,23 +119,23 @@
       display: none;
       background: var(--clr-light);
       padding: var(--space-md);
-      border: 1px solid #ccc;
-      border-top: none;
-      border-radius: 0 0 var(--radius) var(--radius);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      max-width: 900px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      max-width: 1024px;
       margin: 0 auto var(--space-lg);
     }
 
     #homeTab:checked ~ .tabs label[for="homeTab"],
     #cvTab:checked   ~ .tabs label[for="cvTab"],
-    #resTab:checked  ~ .tabs label[for="resTab"] {
+    #resTab:checked  ~ .tabs label[for="resTab"],
+    #notesTab:checked ~ .tabs label[for="notesTab"] {
       background: var(--clr-primary);
     }
 
     #homeTab:checked ~ .content #home,
     #cvTab:checked   ~ .content #cv,
-    #resTab:checked  ~ .content #research {
+    #resTab:checked  ~ .content #research,
+    #notesTab:checked ~ .content #notes {
       display: block;
     }
 
@@ -159,6 +163,12 @@
 
     .cv-link { text-align: center; margin-top: var(--space-md); }
 
+    @media (max-width: 768px) {
+      .tab {
+        width: 95%;
+        padding: var(--space-sm);
+      }
+    }
   </style>
 </head>
 <body>
@@ -167,16 +177,9 @@
     <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" loading="lazy">
     <h1>Rajat Joshi</h1>
     <div class="contact">
-      <!-- Email -->
       <a href="mailto:rajatjoshi@princeton.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
-
-      <!-- GitHub -->
       <a href="https://github.com/yourusername" aria-label="GitHub"><i class="fab fa-github"></i></a>
-
-      <!-- LinkedIn -->
       <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-
-      <!-- Google Scholar -->
       <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
     </div>
   </header>
@@ -185,11 +188,13 @@
   <input type="radio" name="tabset" id="homeTab" checked>
   <input type="radio" name="tabset" id="cvTab">
   <input type="radio" name="tabset" id="resTab">
+  <input type="radio" name="tabset" id="notesTab">
 
   <nav class="tabs">
     <label for="homeTab">Home</label>
     <label for="cvTab">CV</label>
     <label for="resTab">Research</label>
+    <label for="notesTab">Notes</label>
   </nav>
 
   <main class="content">
@@ -201,7 +206,6 @@
 
     <section id="cv" class="tab">
       <h2>Curriculum Vitae</h2>
-
       <div class="edu-entry">
         <div class="header">
           <strong>Ph.D. in Atmospheric & Oceanic Sciences</strong>
@@ -213,7 +217,6 @@
           <p><i>Committee:</i> Drs. Leo Donner, Ming Zhao, David Paynter</p>
         </div>
       </div>
-
       <div class="edu-entry">
         <div class="header">
           <strong>M.Tech in Climate Science (<i>Distinction</i>)</strong>
@@ -224,7 +227,6 @@
           <p><i>Advisor:</i> Prof. V. Venugopal</p>
         </div>
       </div>
-
       <div class="edu-entry">
         <div class="header">
           <strong>B.Tech in Mechanical Engineering (<i>Distinction</i>)</strong>
@@ -234,13 +236,10 @@
           <p>G.B. Pant University of Agriculture & Technology, Pantnagar, India</p>
         </div>
       </div>
-
       <h3>Publications</h3>
       <ul>
         <li>Joshi, R. & Zhang, R. “Impacts of the North Atlantic biases…” <i>npj Clim Atmos Sci</i> 6, 151 (2023). <a href="https://doi.org/10.1038/s41612-023-00482-4">DOI</a></li>
-        <!-- more… -->
       </ul>
-
       <div class="cv-link">
         <a href="your-cv.pdf" download>Download Full CV (PDF)</a>
       </div>
@@ -249,6 +248,14 @@
     <section id="research" class="tab">
       <h2>Research Highlights</h2>
       <p>Here you can showcase figure+text blocks, categorize by topic, and link to your papers.</p>
+    </section>
+
+    <section id="notes" class="tab">
+      <h2>Short Notes & Highlights</h2>
+      <ul>
+        <li><strong>2025-04-28:</strong> Investigating AMOC influence on Pacific SSTs...</li>
+        <li><strong>2025-03-12:</strong> Reading: <i>Coupled Modes of Variability</i> – Xie & Philander...</li>
+      </ul>
     </section>
   </main>
 
