@@ -33,9 +33,9 @@
 </head>
 <body class="bg-white text-gray-900">
   <!-- Top Navigation -->
-  <header class="w-full bg-gray-100 p-6 shadow-md flex justify-between items-center">
+  <header class="w-full bg-gray-200 py-16 px-10 shadow-md flex justify-between items-center">
     <div></div>
-    <nav class="flex space-x-8 text-xl font-semibold">
+    <nav class="flex space-x-10 text-2xl font-bold">
       <button onclick="switchTab('home')" class="hover:text-blue-600">Home</button>
       <button onclick="switchTab('research')" class="hover:text-blue-600">Research</button>
       <button onclick="switchTab('cv')" class="hover:text-blue-600">CV</button>
@@ -43,10 +43,10 @@
   </header>
 
   <!-- Main Content Layout -->
-  <main class="flex flex-col md:flex-row p-6 space-y-6 md:space-y-0 md:space-x-6">
+  <main class="max-w-6xl mx-auto px-10 py-10 flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10">
     <!-- Sidebar (Left - 40%) -->
     <aside class="md:w-2/5 flex flex-col items-center text-center space-y-6">
-      <img src="your-photo.jpg" alt="Profile Photo" class="w-64 h-64 rounded-full shadow-lg object-cover">
+      <img src="your-photo.jpg" alt="Profile Photo" class="w-72 h-72 rounded-full shadow-lg object-cover">
       <div class="space-y-3 text-lg">
         <a href="#" class="block hover:underline text-blue-600">Email</a>
         <a href="#" class="block hover:underline text-blue-600">LinkedIn</a>
@@ -58,12 +58,14 @@
     <section class="md:w-3/5">
       <div id="home" class="tab-content fade opacity-0 transition-opacity duration-500">
         <h2 class="text-3xl font-bold mb-6">Welcome</h2>
-        <p class="text-lg leading-relaxed tracking-wide">
-          I'm an academic researcher focused on cutting-edge developments in computer science and artificial intelligence.
-          My work spans topics such as machine learning, human-computer interaction, and responsible AI practices.
-          <br /><br />
-          I have published in top-tier conferences, mentored students, and collaborated internationally.
-          Please explore the site to learn more about my work, academic background, and ongoing projects.
+        <p class="text-lg leading-relaxed tracking-wide whitespace-pre-line">
+I'm an academic researcher focused on cutting-edge developments in computer science and artificial intelligence.
+
+My work spans topics such as machine learning, human-computer interaction, and responsible AI practices.
+
+I have published in top-tier conferences, mentored students, and collaborated internationally.
+
+Please explore the site to learn more about my work, academic background, and ongoing projects.
         </p>
       </div>
 
