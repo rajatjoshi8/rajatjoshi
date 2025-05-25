@@ -1,212 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rajat Joshi – PhD Candidate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('opacity-100');
+      });
+      const activeTab = document.getElementById(tabId);
+      activeTab.classList.remove('hidden');
+      setTimeout(() => {
+        activeTab.classList.add('opacity-100');
+      }, 50);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      switchTab('home');
+    });
+  </script>
   <style>
-    :root {
-      --clr-primary: #888;
-      --clr-accent: #ccc;
-      --clr-bg: #f9f9f9;
-      --clr-light: #ffffff;
-      --clr-dark: #1a1a1a;
-      --clr-text-light: #ecf0f1;
-      --fs-base: 1rem;
-      --fs-lg: 1.25rem;
-      --fs-xl: 2rem;
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --radius: 0.5rem;
+    .fade {
+      transition: opacity 0.5s ease-in-out;
     }
-
-    [data-theme="dark"] {
-      --clr-bg: #1a1a1a;
-      --clr-light: #2a2a2a;
-      --clr-dark: #ffffff;
-      --clr-primary: #ccc;
-      --clr-accent: #888;
-    }
-
     body {
-      font-family: 'Open Sans', sans-serif;
-      font-size: var(--fs-base);
-      line-height: 1.6;
-      color: var(--clr-dark);
-      background: var(--clr-bg);
-      margin: 0;
-      transition: background 0.4s, color 0.4s;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      padding: var(--space-sm);
-      background: var(--clr-primary);
-      color: var(--clr-text-light);
-      border-radius: var(--radius);
-    }
-
-    .profile-photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .header-info {
-      flex: 1;
-    }
-
-    .contact {
-      display: flex;
-      gap: var(--space-sm);
-    }
-
-    .contact a {
-      color: var(--clr-light);
-      font-size: var(--fs-lg);
-    }
-
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-sm);
-      background: var(--clr-light);
-      padding: var(--space-sm);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .tabs label {
-      padding: var(--space-sm) var(--space-md);
-      background: var(--clr-accent);
-      border-radius: var(--radius);
-      cursor: pointer;
-      color: var(--clr-dark);
-      transition: background 0.3s;
-    }
-
-    .tabs label:hover {
-      background: var(--clr-primary);
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-
-    .tab {
-      display: none;
-      max-width: 960px;
-      margin: var(--space-lg) auto;
-      padding: var(--space-md);
-      background: var(--clr-light);
-      border-radius: var(--radius);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    #homeTab:checked ~ .content #home,
-    #cvTab:checked ~ .content #cv,
-    #resTab:checked ~ .content #research,
-    #LectureNotesTab:checked ~ .content #lecture-notes {
-      display: block;
-    }
-
-    #cvTab:checked ~ header,
-    #resTab:checked ~ header,
-    #LectureNotesTab:checked ~ header {
-      display: none;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 1000;
-      background: var(--clr-accent);
-      color: var(--clr-dark);
-      border: none;
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius);
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .tabs {
-        flex-wrap: wrap;
-      }
+      font-family: 'Segoe UI', sans-serif;
     }
   </style>
 </head>
-<body>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-
-  <input type="radio" name="tabset" id="homeTab" checked />
-  <input type="radio" name="tabset" id="cvTab" />
-  <input type="radio" name="tabset" id="resTab" />
-  <input type="radio" name="tabset" id="LectureNotesTab" />
-
-  <header>
-    <img src="your-photo.jpg" alt="Rajat Joshi" class="profile-photo" />
-    <div class="header-info">
-      <h1>Rajat Joshi</h1>
-      <div class="contact">
-        <a href="mailto:rajatjoshi@princeton.edu"><i class="fas fa-envelope"></i></a>
-        <a href="https://github.com/rajatjoshi8"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/rajat-joshi-248a1027b"><i class="fab fa-linkedin"></i></a>
-        <a href="https://scholar.google.com/citations?user=FVbbAZMAAAAJ"><i class="fas fa-graduation-cap"></i></a>
-      </div>
-    </div>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <!-- Top Navigation -->
+  <header class="w-full bg-gray-100 dark:bg-gray-800 p-4 shadow-md flex justify-between items-center">
+    <nav class="flex space-x-4">
+      <button onclick="switchTab('home')" class="hover:text-blue-600 dark:hover:text-blue-400">Home</button>
+      <button onclick="switchTab('cv')" class="hover:text-blue-600 dark:hover:text-blue-400">CV</button>
+      <button onclick="switchTab('research')" class="hover:text-blue-600 dark:hover:text-blue-400">Research</button>
+    </nav>
+    <button onclick="toggleTheme()" class="text-sm bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded">Toggle Theme</button>
   </header>
 
-  <nav class="tabs">
-    <label for="homeTab">Home</label>
-    <label for="cvTab">CV</label>
-    <label for="resTab">Research</label>
-    <label for="LectureNotesTab">Lecture Notes</label>
-  </nav>
+  <!-- Main Content Layout -->
+  <main class="flex flex-col md:flex-row p-6 space-y-6 md:space-y-0 md:space-x-6">
+    <!-- Sidebar (Left) -->
+    <aside class="md:w-1/4 flex flex-col items-center text-center space-y-4">
+      <img src="your-photo.jpg" alt="Profile Photo" class="w-40 h-40 rounded-full shadow-lg">
+      <div class="space-y-2">
+        <a href="#" class="block hover:underline text-blue-600 dark:text-blue-400">Email</a>
+        <a href="#" class="block hover:underline text-blue-600 dark:text-blue-400">LinkedIn</a>
+        <a href="#" class="block hover:underline text-blue-600 dark:text-blue-400">Google Scholar</a>
+      </div>
+    </aside>
 
-  <main class="content">
-    <section id="home" class="tab">
-      <p>Hello! I am <strong>Rajat Joshi</strong>, a graduate student at Princeton University...</p>
-    </section>
-    <section id="cv" class="tab">
-      <h2>Curriculum Vitae</h2>
-      <p>Details go here...</p>
-    </section>
-    <section id="research" class="tab">
-      <h2>Research</h2>
-      <p>Research content here...</p>
-    </section>
-    <section id="lecture-notes" class="tab">
-      <h2>Lecture Notes</h2>
-      <p>Lecture notes list here...</p>
+    <!-- Tab Content Area (Right) -->
+    <section class="md:w-3/4">
+      <div id="home" class="tab-content fade opacity-0 transition-opacity duration-500">
+        <h2 class="text-2xl font-semibold mb-4">Welcome</h2>
+        <p class="text-lg leading-relaxed tracking-wide">
+          I'm an academic researcher focused on cutting-edge developments in computer science and artificial intelligence.
+          My work spans topics such as machine learning, human-computer interaction, and responsible AI practices.
+          <br/><br/>
+          I have published in top-tier conferences, mentored students, and collaborated internationally.
+          Please explore the site to learn more about my work, academic background, and ongoing projects.
+        </p>
+      </div>
+
+      <div id="cv" class="tab-content fade hidden opacity-0 transition-opacity duration-500">
+        <h2 class="text-2xl font-semibold mb-4">Curriculum Vitae</h2>
+        <p class="text-lg leading-relaxed tracking-wide">Download or view my CV <a href="#" class="text-blue-600 dark:text-blue-400 underline">here</a>.</p>
+      </div>
+
+      <div id="research" class="tab-content fade hidden opacity-0 transition-opacity duration-500">
+        <h2 class="text-2xl font-semibold mb-4">Research</h2>
+        <p class="text-lg leading-relaxed tracking-wide">
+          My research is centered on the development of ethical and effective AI systems. Recent projects include:
+          <ul class="list-disc list-inside mt-2">
+            <li>Explainable AI for healthcare applications</li>
+            <li>AI fairness evaluation metrics</li>
+            <li>Human-in-the-loop learning systems</li>
+          </ul>
+        </p>
+      </div>
     </section>
   </main>
-
-  <script>
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-    }
-  </script>
 </body>
 </html>
