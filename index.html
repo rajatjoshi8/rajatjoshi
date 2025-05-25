@@ -1,93 +1,96 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic Profile</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => {
-        el.classList.add('hidden');
-        el.classList.remove('opacity-100');
-      });
-      const activeTab = document.getElementById(tabId);
-      activeTab.classList.remove('hidden');
-      setTimeout(() => {
-        activeTab.classList.add('opacity-100');
-      }, 50);
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .tab-content {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .tab-content.active {
+        display: block;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-black">
+    <!-- Header with GIF background -->
+    <header
+      class="w-full min-h-[60vh] bg-cover bg-center bg-no-repeat px-10 shadow-md flex justify-between items-center"
+      style="background-image: url('your-background.gif');"
+    >
+      <div></div>
+      <nav class="flex space-x-10 text-2xl font-bold text-white">
+        <button onclick="switchTab('home')" class="hover:text-blue-300">Home</button>
+        <button onclick="switchTab('research')" class="hover:text-blue-300">Research</button>
+        <button onclick="switchTab('cv')" class="hover:text-blue-300">CV</button>
+      </nav>
+    </header>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      switchTab('home');
-    });
-  </script>
-  <style>
-    .fade {
-      transition: opacity 0.5s ease-in-out;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
-  </style>
-</head>
-<body class="bg-white text-gray-900">
-  <!-- Top Navigation -->
-  <header class="w-full bg-gray-200 py-50 px-10 shadow-md flex justify-between items-center">
-    <div></div>
-    <nav class="flex space-x-10 text-2xl font-bold">
-      <button onclick="switchTab('home')" class="hover:text-blue-600">Home</button>
-      <button onclick="switchTab('research')" class="hover:text-blue-600">Research</button>
-      <button onclick="switchTab('cv')" class="hover:text-blue-600">CV</button>
-    </nav>
-  </header>
+    <main class="px-[10%] py-10">
+      <!-- Home Tab -->
+      <section id="home" class="tab-content active">
+        <div class="flex flex-col lg:flex-row gap-10">
+          <!-- Profile Photo and Links -->
+          <div class="w-full lg:w-[40%] flex flex-col items-center space-y-6">
+            <img
+              src="profile.jpg"
+              alt="Profile Photo"
+              class="rounded-full w-64 h-64 object-cover border-4 border-gray-300"
+            />
+            <div class="space-y-4 text-center">
+              <a href="#" class="text-blue-600 hover:underline block">Google Scholar</a>
+              <a href="#" class="text-blue-600 hover:underline block">ORCID</a>
+              <a href="#" class="text-blue-600 hover:underline block">LinkedIn</a>
+              <a href="#" class="text-blue-600 hover:underline block">GitHub</a>
+            </div>
+          </div>
 
-  <!-- Main Content Layout -->
-  <main class="max-w-6xl mx-auto px-10 py-10 flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10">
-    <!-- Sidebar (Left - 40%) -->
-    <aside class="md:w-2/5 flex flex-col items-center text-center space-y-6">
-      <img src="your-photo.jpg" alt="Profile Photo" class="w-72 h-72 rounded-full shadow-lg object-cover">
-      <div class="space-y-3 text-lg">
-        <a href="#" class="block hover:underline text-blue-600">Email</a>
-        <a href="#" class="block hover:underline text-blue-600">LinkedIn</a>
-        <a href="#" class="block hover:underline text-blue-600">Google Scholar</a>
-      </div>
-    </aside>
+          <!-- Bio Section -->
+          <div class="w-full lg:w-[60%] text-lg leading-relaxed font-light">
+            <p>
+              Welcome! I am a researcher and academic dedicated to exploring cutting-edge topics
+              in computational linguistics and artificial intelligence. My work focuses on
+              language models, multilingual NLP, and the ethical implications of AI. I strive to
+              make a positive impact through teaching, mentorship, and open research.
+            </p>
+            <p class="mt-4">
+              I received my Ph.D. from XYZ University and currently hold a position as Assistant
+              Professor at ABC Institute. I'm passionate about collaborative science and always
+              open to connecting with like-minded scholars.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Content Area (Right - 60%) -->
-    <section class="md:w-3/5">
-      <div id="home" class="tab-content fade opacity-0 transition-opacity duration-500">
-        <h2 class="text-3xl font-bold mb-6">Welcome</h2>
-        <p class="text-lg leading-relaxed tracking-wide whitespace-pre-line">
-I'm an academic researcher focused on cutting-edge developments in computer science and artificial intelligence.
-
-My work spans topics such as machine learning, human-computer interaction, and responsible AI practices.
-
-I have published in top-tier conferences, mentored students, and collaborated internationally.
-
-Please explore the site to learn more about my work, academic background, and ongoing projects.
-        </p>
-      </div>
-
-      <div id="cv" class="tab-content fade hidden opacity-0 transition-opacity duration-500">
-        <h2 class="text-3xl font-bold mb-6">Curriculum Vitae</h2>
-        <p class="text-lg leading-relaxed tracking-wide">
-          Download or view my CV <a href="#" class="text-blue-600 underline">here</a>.
-        </p>
-      </div>
-
-      <div id="research" class="tab-content fade hidden opacity-0 transition-opacity duration-500">
-        <h2 class="text-3xl font-bold mb-6">Research</h2>
-        <p class="text-lg leading-relaxed tracking-wide">
-          My research is centered on the development of ethical and effective AI systems. Recent projects include:
-        </p>
-        <ul class="list-disc list-inside mt-4 text-lg leading-relaxed">
-          <li>Explainable AI for healthcare applications</li>
-          <li>AI fairness evaluation metrics</li>
-          <li>Human-in-the-loop learning systems</li>
+      <!-- Research Tab -->
+      <section id="research" class="tab-content">
+        <h2 class="text-2xl font-bold mb-4">Research</h2>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Project 1: Exploring Efficient Transformer Architectures</li>
+          <li>Project 2: Low-resource Language Modeling</li>
+          <li>Project 3: Fairness and Bias in AI Systems</li>
         </ul>
-      </div>
-    </section>
-  </main>
-</body>
+      </section>
+
+      <!-- CV Tab -->
+      <section id="cv" class="tab-content">
+        <h2 class="text-2xl font-bold mb-4">Curriculum Vitae</h2>
+        <p>Download my <a href="#" class="text-blue-600 underline">CV here</a>.</p>
+      </section>
+    </main>
+
+    <script>
+      function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach((tab) => {
+          tab.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+      }
+    </script>
+  </body>
 </html>
