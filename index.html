@@ -27,7 +27,7 @@
         muted
         loop
         playsinline
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+        class="absolute top-0 left-0 w-full h-full object-contain z-0"
       >
         <source
           src="https://raw.githubusercontent.com/rajatjoshi8/rajatjoshi/main/header.mp4"
@@ -37,16 +37,11 @@
       </video>
 
       <nav class="flex space-x-10 text-3xl font-bold text-white relative z-10">
-        <button onclick="switchTab('home')" class="hover:text-blue-300">
-          Home
-        </button>
-        <button onclick="switchTab('research')" class="hover:text-blue-300">
-          Research
-        </button>
+        <button onclick="switchTab('home')" class="hover:text-blue-300">Home</button>
+        <button onclick="switchTab('research')" class="hover:text-blue-300">Research</button>
         <button onclick="switchTab('cv')" class="hover:text-blue-300">CV</button>
       </nav>
 
-      <!-- Source credit -->
       <div
         class="absolute bottom-2 right-4 text-white text-sm bg-black bg-opacity-50 px-2 py-1 rounded z-10"
       >
@@ -66,34 +61,25 @@
               class="rounded-full w-80 h-80 object-cover border-4 border-gray-300"
             />
             <div class="space-y-4 text-center">
-              <a href="#" class="text-blue-600 hover:underline block"
-                >Google Scholar</a
-              >
+              <a href="#" class="text-blue-600 hover:underline block">Google Scholar</a>
               <a href="#" class="text-blue-600 hover:underline block">ORCID</a>
-              <a href="#" class="text-blue-600 hover:underline block"
-                >LinkedIn</a
-              >
+              <a href="#" class="text-blue-600 hover:underline block">LinkedIn</a>
               <a href="#" class="text-blue-600 hover:underline block">GitHub</a>
             </div>
           </div>
 
           <!-- Bio Section -->
-          <div
-            class="w-full lg:w-[60%] text-lg leading-relaxed font-light font-sans"
-            style="line-height: 1.8; letter-spacing: 0.02em;"
-          >
+          <div class="w-full lg:w-[60%] text-lg leading-relaxed font-light">
             <p>
-              Welcome! I am a researcher and academic dedicated to exploring
-              cutting-edge topics in computational linguistics and artificial
-              intelligence. My work focuses on language models, multilingual NLP,
-              and the ethical implications of AI. I strive to make a positive
-              impact through teaching, mentorship, and open research.
+              Welcome! I am a researcher and academic dedicated to exploring cutting-edge topics
+              in computational linguistics and artificial intelligence. My work focuses on
+              language models, multilingual NLP, and the ethical implications of AI. I strive to
+              make a positive impact through teaching, mentorship, and open research.
             </p>
             <p class="mt-4">
-              I received my Ph.D. from XYZ University and currently hold a
-              position as Assistant Professor at ABC Institute. I'm passionate
-              about collaborative science and always open to connecting with
-              like-minded scholars.
+              I received my Ph.D. from XYZ University and currently hold a position as Assistant
+              Professor at ABC Institute. I'm passionate about collaborative science and always
+              open to connecting with like-minded scholars.
             </p>
           </div>
         </div>
@@ -112,19 +98,16 @@
       <!-- CV Tab -->
       <section id="cv" class="tab-content">
         <h2 class="text-2xl font-bold mb-4">Curriculum Vitae</h2>
-        <p>
-          Download my
-          <a href="#" class="text-blue-600 underline">CV here</a>.
-        </p>
+        <p>Download my <a href="#" class="text-blue-600 underline">CV here</a>.</p>
       </section>
     </main>
 
     <script>
       function switchTab(tabId) {
-        document.querySelectorAll(".tab-content").forEach((tab) => {
-          tab.classList.remove("active");
+        document.querySelectorAll('.tab-content').forEach((tab) => {
+          tab.classList.remove('active');
         });
-        document.getElementById(tabId).classList.add("active");
+        document.getElementById(tabId).classList.add('active');
       }
     </script>
   </body>
