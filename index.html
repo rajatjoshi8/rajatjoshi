@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Academic Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
       .tab-content {
         display: none;
@@ -38,9 +41,9 @@
       </video>
 
       <nav class="flex space-x-10 text-3xl font-bold text-white relative z-10">
-        <button onclick="switchTab('home')" class="hover:text-blue-300">Home</button>
-        <button onclick="switchTab('research')" class="hover:text-blue-300">Research</button>
-        <button onclick="switchTab('cv')" class="hover:text-blue-300">CV</button>
+        <a href="#home" class="hover:text-blue-300">Home</a>
+        <a href="#research" class="hover:text-blue-300">Research</a>
+        <a href="#cv" class="hover:text-blue-300">CV</a>
       </nav>
 
       <!-- Source credit -->
@@ -51,35 +54,31 @@
       </div>
     </header>
 
-    <main class="px-[10%] py-10">
-      <!-- Home Tab -->
-      <section id="home" class="tab-content active">
+    <main class="px-[10%] py-10 space-y-20">
+      <!-- Home Section -->
+      <section id="home">
         <div class="w-full overflow-x-auto">
           <div class="flex flex-row flex-nowrap gap-10 items-start min-w-[700px]">
             <!-- Profile Photo + Icons -->
             <div class="w-[40%] flex flex-col items-center space-y-4">
-              <!-- Profile Photo -->
+              <!-- Replace with your actual hosted image link -->
               <img
-                src="https://raw.githubusercontent.com/rajatjoshi8/rajatjoshi/main/profile.jpg"
+                src="https://avatars.githubusercontent.com/u/9919?s=200&v=4"
                 alt="Rajat Joshi"
                 class="w-full h-auto max-w-[250px] rounded-full shadow-lg object-cover"
               />
 
               <!-- Social Icons -->
               <div class="flex space-x-4 text-2xl text-gray-700">
-                <!-- Email -->
                 <a href="mailto:your-email@example.com" class="hover:text-blue-500" aria-label="Email">
                   <i class="fas fa-envelope"></i>
                 </a>
-                <!-- LinkedIn -->
                 <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600" aria-label="LinkedIn">
                   <i class="fab fa-linkedin"></i>
                 </a>
-                <!-- Google Scholar -->
                 <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" class="hover:text-gray-800" aria-label="Google Scholar">
                   <i class="fas fa-graduation-cap"></i>
                 </a>
-                <!-- ORCID -->
                 <a href="https://orcid.org/YOUR-ORCID-ID" target="_blank" class="hover:text-green-600" aria-label="ORCID">
                   <i class="fab fa-orcid"></i>
                 </a>
@@ -107,33 +106,24 @@
         </div>
       </section>
 
-      <!-- Research Tab -->
-      <section id="research" class="tab-content">
+      <!-- Research Section -->
+      <section id="research">
         <h2 class="text-2xl font-bold mb-4">Research</h2>
-        <ul class="list-disc list-inside space-y-2">
+        <ul class="list-disc list-inside space-y-2 text-lg">
           <li>Project 1: Exploring Efficient Transformer Architectures</li>
           <li>Project 2: Low-resource Language Modeling</li>
           <li>Project 3: Fairness and Bias in AI Systems</li>
         </ul>
       </section>
 
-      <!-- CV Tab -->
-      <section id="cv" class="tab-content">
+      <!-- CV Section -->
+      <section id="cv">
         <h2 class="text-2xl font-bold mb-4">Curriculum Vitae</h2>
-        <p>
+        <p class="text-lg">
           Download my
           <a href="#" class="text-blue-600 underline">CV here</a>.
         </p>
       </section>
     </main>
-
-    <script>
-      function switchTab(tabId) {
-        document.querySelectorAll(".tab-content").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-        document.getElementById(tabId).classList.add("active");
-      }
-    </script>
   </body>
 </html>
