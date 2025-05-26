@@ -19,6 +19,24 @@
         display: block;
         opacity: 1;
       }
+      /* Remove black box, style source text */
+      .source-text {
+        color: white;
+        font-size: 0.875rem; /* small */
+        text-align: right;
+        max-width: 320px;
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        z-index: 10;
+      }
+      .source-text a {
+        color: #60a5fa; /* Tailwind blue-400 */
+        text-decoration: underline;
+      }
+      .source-text a:hover {
+        color: #3b82f6; /* Tailwind blue-500 */
+      }
     </style>
   </head>
   <body class="bg-white text-black">
@@ -70,15 +88,10 @@
       </div>
 
       <!-- Source and description bottom right -->
-      <div
-        class="absolute bottom-2 right-4 text-white text-sm bg-black bg-opacity-50 px-3 py-2 rounded z-10 max-w-xs text-right"
-      >
-        source: nullschool<br />
-        <a
-          href="https://nullschool.net/"
-          target="_blank"
-          class="underline hover:text-blue-400"
-          >nullschool.html</a
+      <div class="source-text">
+        source: 
+        <a href="https://nullschool.net/" target="_blank" rel="noopener noreferrer"
+          >nullschool</a
         ><br />
         Image description: white arrows = ocean currents; color = SST (red =
         warmer, blue = colder)
@@ -87,14 +100,13 @@
 
     <main class="px-[10%] py-10 space-y-20">
       <!-- Home Section -->
-      <section id="home">
+      <section id="home" class="tab-content active">
         <div class="w-full overflow-x-auto">
           <div
             class="flex flex-row flex-nowrap gap-10 items-start min-w-[700px]"
           >
             <!-- Profile Photo + Icons -->
             <div class="w-[40%] flex flex-col items-center space-y-4">
-              <!-- Replace with your actual hosted image link -->
               <img
                 src="https://raw.githubusercontent.com/rajatjoshi8/rajatjoshi/main/pp.png"
                 alt="Rajat Joshi"
@@ -111,7 +123,7 @@
                   <i class="fas fa-envelope"></i>
                 </a>
                 <a
-                  href="https://linkedin.com/in"
+                  href="https://linkedin.com/in/your-profile"
                   target="_blank"
                   class="hover:text-blue-600"
                   aria-label="LinkedIn"
@@ -119,7 +131,7 @@
                   <i class="fab fa-linkedin"></i>
                 </a>
                 <a
-                  href="https://scholar.google.com/citations"
+                  href="https://scholar.google.com/citations?user=YOUR_ID"
                   target="_blank"
                   class="hover:text-gray-800"
                   aria-label="Google Scholar"
@@ -127,7 +139,7 @@
                   <i class="fas fa-graduation-cap"></i>
                 </a>
                 <a
-                  href="https://orcid.org"
+                  href="https://orcid.org/YOUR-ORCID-ID"
                   target="_blank"
                   class="hover:text-green-600"
                   aria-label="ORCID"
@@ -159,7 +171,7 @@
       </section>
 
       <!-- Research Section -->
-      <section id="research">
+      <section id="research" class="tab-content">
         <h2 class="text-2xl font-bold mb-4">Research</h2>
         <ul class="list-disc list-inside space-y-2 text-lg">
           <li>Project 1: Exploring Efficient Transformer Architectures</li>
@@ -168,8 +180,28 @@
         </ul>
       </section>
 
+      <!-- Publications Section -->
+      <section id="publications" class="tab-content">
+        <h2 class="text-2xl font-bold mb-4">Publications</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+          <li>Publication 1: Advances in NLP</li>
+          <li>Publication 2: Multilingual Language Models</li>
+          <li>Publication 3: Ethical AI Frameworks</li>
+        </ul>
+      </section>
+
+      <!-- Lecture Notes Section -->
+      <section id="lecturenotes" class="tab-content">
+        <h2 class="text-2xl font-bold mb-4">Lecture Notes</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+          <li>Lecture 1: Introduction to Computational Linguistics</li>
+          <li>Lecture 2: Transformer Architectures</li>
+          <li>Lecture 3: Bias in AI Systems</li>
+        </ul>
+      </section>
+
       <!-- CV Section -->
-      <section id="cv">
+      <section id="cv" class="tab-content">
         <h2 class="text-2xl font-bold mb-4">Curriculum Vitae</h2>
         <p class="text-lg">
           Download my
@@ -177,5 +209,17 @@
         </p>
       </section>
     </main>
+
+    <script>
+      function switchTab(tabId) {
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        const selectedTab = document.getElementById(tabId);
+        if (selectedTab) selectedTab.classList.add("active");
+        // Scroll to top of main content when tab switches
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
   </body>
 </html>
