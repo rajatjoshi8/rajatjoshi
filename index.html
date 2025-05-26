@@ -10,16 +10,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <style>
-      .tab-content {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-      .tab-content.active {
-        display: block;
-        opacity: 1;
-      }
-      /* Remove black box, style source text */
+      /* Remove tab-content hiding logic - all sections visible by default */
+
+      /* Style for source text bottom-right without black box */
       .source-text {
         color: white;
         font-size: 0.875rem; /* small */
@@ -36,6 +29,11 @@
       }
       .source-text a:hover {
         color: #3b82f6; /* Tailwind blue-500 */
+      }
+
+      /* Optional: smooth scroll behavior for anchor navigation */
+      html {
+        scroll-behavior: smooth;
       }
     </style>
   </head>
@@ -58,25 +56,15 @@
         Your browser does not support the video tag.
       </video>
 
-      <!-- Top nav tabs on right -->
+      <!-- Top nav tabs on right, changed buttons to anchor links -->
       <nav
         class="flex space-x-12 text-4xl font-bold text-white relative z-10 justify-end pt-6"
       >
-        <button onclick="switchTab('home')" class="hover:text-blue-300">
-          Home
-        </button>
-        <button onclick="switchTab('research')" class="hover:text-blue-300">
-          Research
-        </button>
-        <button onclick="switchTab('publications')" class="hover:text-blue-300">
-          Publications
-        </button>
-        <button onclick="switchTab('lecturenotes')" class="hover:text-blue-300">
-          Lecture Notes
-        </button>
-        <button onclick="switchTab('cv')" class="hover:text-blue-300">
-          CV
-        </button>
+        <a href="#home" class="hover:text-blue-300">Home</a>
+        <a href="#research" class="hover:text-blue-300">Research</a>
+        <a href="#publications" class="hover:text-blue-300">Publications</a>
+        <a href="#lecturenotes" class="hover:text-blue-300">Lecture Notes</a>
+        <a href="#cv" class="hover:text-blue-300">CV</a>
       </nav>
 
       <!-- Centered welcome message -->
@@ -100,7 +88,7 @@
 
     <main class="px-[10%] py-10 space-y-20">
       <!-- Home Section -->
-      <section id="home" class="tab-content active">
+      <section id="home">
         <div class="w-full overflow-x-auto">
           <div
             class="flex flex-row flex-nowrap gap-10 items-start min-w-[700px]"
@@ -171,7 +159,7 @@
       </section>
 
       <!-- Research Section -->
-      <section id="research" class="tab-content">
+      <section id="research">
         <h2 class="text-2xl font-bold mb-4">Research</h2>
         <ul class="list-disc list-inside space-y-2 text-lg">
           <li>Project 1: Exploring Efficient Transformer Architectures</li>
@@ -181,7 +169,7 @@
       </section>
 
       <!-- Publications Section -->
-      <section id="publications" class="tab-content">
+      <section id="publications">
         <h2 class="text-2xl font-bold mb-4">Publications</h2>
         <ul class="list-disc list-inside space-y-2 text-lg">
           <li>Publication 1: Advances in NLP</li>
@@ -191,7 +179,7 @@
       </section>
 
       <!-- Lecture Notes Section -->
-      <section id="lecturenotes" class="tab-content">
+      <section id="lecturenotes">
         <h2 class="text-2xl font-bold mb-4">Lecture Notes</h2>
         <ul class="list-disc list-inside space-y-2 text-lg">
           <li>Lecture 1: Introduction to Computational Linguistics</li>
@@ -201,7 +189,7 @@
       </section>
 
       <!-- CV Section -->
-      <section id="cv" class="tab-content">
+      <section id="cv">
         <h2 class="text-2xl font-bold mb-4">Curriculum Vitae</h2>
         <p class="text-lg">
           Download my
@@ -209,17 +197,5 @@
         </p>
       </section>
     </main>
-
-    <script>
-      function switchTab(tabId) {
-        document.querySelectorAll(".tab-content").forEach((tab) => {
-          tab.classList.remove("active");
-        });
-        const selectedTab = document.getElementById(tabId);
-        if (selectedTab) selectedTab.classList.add("active");
-        // Scroll to top of main content when tab switches
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    </script>
   </body>
 </html>
