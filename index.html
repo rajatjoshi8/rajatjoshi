@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Rajat Joshi — Academic Website</title>
+  <meta name="description" content="Rajat Joshi — PhD Candidate at Princeton (Atmospheric & Oceanic Sciences). Research, publications, and contact." />
+
+  <style>
+    :root{
+      --bg:#0b0d12; --panel:#111522; --text:#e9eefc; --muted:#a7b0c6;
+      --line:#23304a; --accent:#7aa2ff; --accent2:#6ee7b7;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    /* Light mode */
+    :root[data-theme="light"]{
+      --bg:#fafbff; --panel:#ffffff; --text:#0b1220; --muted:#4b5568;
+      --line:#e6eaf3; --accent:#275efe; --accent2:#059669;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 600px at 15% -10%, rgba(122,162,255,.28), transparent 60%),
+                  radial-gradient(900px 500px at 110% 10%, rgba(110,231,183,.20), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    :focus-visible{outline:3px solid color-mix(in srgb, var(--accent) 65%, transparent); outline-offset:3px; border-radius:10px}
+
+    .container{max-width:1080px; margin:0 auto; padding:24px}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{display:flex; gap:12px; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1080px; margin:0 auto;}
+
+    .brand{display:flex; gap:12px; align-items:center; min-width:0}
+    .brand .title{font-weight:750; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .brand .subtitle{color:var(--muted); font-size:13px; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; margin-left:auto}
+    nav a{color:var(--text); opacity:.88; font-size:14px}
+    nav a:hover{opacity:1}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 60%, transparent);
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+      cursor:pointer;
+      color:var(--text);
+      font-size:13px;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .iconbtn{
+      display:none;
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 60%, transparent);
+      color:var(--text);
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .mobilemenu{
+      display:none;
+      border-top:1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+    }
+    .mobilemenu-inner{max-width:1080px; margin:0 auto; padding:10px 24px 14px}
+    .mobilemenu a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: color-mix(in srgb, var(--panel) 78%, transparent);
+      color:var(--text);
+      text-decoration:none;
+      margin-top:10px;
+    }
+    .mobilemenu a small{color:var(--muted)}
+
+    /* Hero */
+    .hero{padding:34px 0 12px}
+    .hero-merged{display:grid; grid-template-columns: auto 1fr auto; gap:18px; align-items:center}
+    .hero-name{min-width:0}
+    .hero-name .h1{margin:0}
+    .hero-name .subline{color:var(--muted); margin-top:6px; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .hero-actions .btnrow{margin-top:0; justify-content:flex-end}
+
+    @media (max-width: 880px){
+      .hero-merged{grid-template-columns:1fr; text-align:center}
+      .hero-actions .btnrow{justify-content:center}
+      .hero-name .subline{white-space:normal}
+    }
+
+    .card{
+      background: color-mix(in srgb, var(--panel) 85%, transparent);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+
+    .h1{font-size:40px; line-height:1.08; margin:4px 0 10px}
+    .lead{color:var(--muted); font-size:16px; line-height:1.7; margin:0 0 14px}
+
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .chip{
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      padding:8px 11px; border-radius:999px;
+      color:var(--text);
+      font-size:13px;
+      line-height:1;
+    }
+    .chip code{font-family:var(--mono); font-size:12px; color:var(--muted)}
+
+    .profile{display:flex; gap:14px; align-items:center;}
+    .avatar{
+      width:108px; height:108px; border-radius:26px;
+      background: linear-gradient(135deg, rgba(122,162,255,.20), rgba(110,231,183,.18));
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      overflow:hidden;
+    }
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .avatar span{font-size:32px; font-weight:850; letter-spacing:1px}
+
+    .meta{min-width:0}
+    .meta .role{font-weight:700; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .meta .where{color:var(--muted); margin:6px 0 0; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      border-radius: 14px;
+      padding:11px 13px;
+      border:1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      color:var(--text);
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
+      min-height:44px; /* phone tap target */
+    }
+    .btn.primary{border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: 0 10px 20px rgba(39,94,254,.12)}
+    .btn:hover{text-decoration:none; filter: brightness(1.05)}
+
+    /* Sections */
+    .pubgroup{margin:18px 0 10px; font-size:14px; letter-spacing:.02em; text-transform:uppercase; color:var(--muted)}
+    .pubgroup:first-of-type{margin-top:0}
+    section{scroll-margin-top:100px}
+    .section{padding:14px 0}
+    .section h2{font-size:22px; margin:0 0 10px}
+    .section p{margin:0 0 10px; color:var(--muted); line-height:1.75}
+
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:18px}
+
+    .list{display:flex; flex-direction:column; gap:10px}
+    .item{border:1px solid var(--line); border-radius:14px; padding:12px; background: color-mix(in srgb, var(--panel) 82%, transparent)}
+    .item .top{display:flex; gap:10px; align-items:flex-start; justify-content:space-between}
+    .item h3{margin:0; font-size:15.5px; line-height:1.35}
+    .item .tag{font-family:var(--mono); font-size:12px; color:var(--muted); white-space:nowrap}
+    .item .sub{margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.65}
+
+    .pub-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .small{font-size:12.5px; color:var(--muted)}
+
+    .kpi{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-top:12px}
+    .kpi .box{border:1px solid var(--line); border-radius:14px; padding:12px; background: color-mix(in srgb, var(--panel) 82%, transparent)}
+    .kpi .num{font-size:18px; font-weight:800}
+    .kpi .lab{color:var(--muted); font-size:13px; margin-top:4px}
+
+    .footer{padding:26px 0 calc(38px + env(safe-area-inset-bottom)); color:var(--muted); font-size:13px;}
+
+    /* Remove keyword chips next to research titles */
+    #research .tag{display:none !important;}
+
+    /* Research section with narrative + image */
+    .research-layout{display:grid; grid-template-columns: 1.25fr .75fr; gap:16px; align-items:start; margin-top:10px}
+    .research-text p{margin:0 0 10px; color:var(--muted); line-height:1.8}
+    .research-fig{margin:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background: color-mix(in srgb, var(--panel) 82%, transparent)}
+    .research-fig img{display:block; width:100%; height:auto; cursor:zoom-in}
+    .research-fig figcaption{padding:10px 12px; color:var(--muted); font-size:12.5px; line-height:1.5}
+
+    @media (max-width: 880px){
+      .research-layout{grid-template-columns:1fr}
+    }
+
+    /* Research projects with schematics */
+    .proj.clickable{cursor:pointer}
+    .proj.clickable:hover{filter: brightness(1.03)}
+    .proj.clickable:active{transform: translateY(1px)}
+    .projgrid{display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px}
+    .proj{display:grid; grid-template-columns: 1.15fr .85fr; gap:14px; align-items:start}
+    .proj .desc{color:var(--muted); font-size:14px; line-height:1.7; margin-top:8px}
+    .proj .desc p{margin:0 0 10px}
+    .proj .desc b{color:var(--text)}
+    .proj figure{margin:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background: color-mix(in srgb, var(--panel) 82%, transparent)}
+    .proj figure img{display:block; width:100%; height:auto; cursor:zoom-in; aspect-ratio: 4 / 3; object-fit: cover}
+    .proj figcaption{padding:10px 12px; color:var(--muted); font-size:12.5px; line-height:1.5}
+    .proj .links{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+    .proj .links a{font-size:13px}
+
+    /* Lightbox */
+    dialog#lightbox{border:none; padding:0; border-radius:18px; max-width:min(960px, 92vw)}
+    dialog#lightbox::backdrop{background: rgba(0,0,0,.55)}
+    .lightbox-inner{background: color-mix(in srgb, var(--panel) 92%, transparent); border:1px solid var(--line); border-radius:18px; overflow:hidden}
+    .lightbox-top{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 12px; border-bottom:1px solid var(--line)}
+    .lightbox-top .cap{color:var(--muted); font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+    .lightbox-top button{min-height:40px; padding:8px 10px; border-radius:12px; border:1px solid var(--line); background: color-mix(in srgb, var(--panel) 85%, transparent); color:var(--text); cursor:pointer}
+    .lightbox-body{padding:12px}
+    .lightbox-body img{width:100%; height:auto; display:block; border-radius:14px; border:1px solid var(--line)}
+
+    @media (max-width: 880px){
+      .proj{grid-template-columns:1fr}
+    }
+
+    /* Mobile */
+    @media (max-width: 880px){
+      nav{display:none}
+      .iconbtn{display:inline-grid; place-items:center}
+      .grid2{grid-template-columns:1fr}
+      .h1{font-size:34px}
+    }
+
+    @media (max-width: 520px){
+      .container{padding:16px}
+      .topbar-inner{padding:12px 16px}
+      .mobilemenu-inner{padding:10px 16px 14px}
+      .avatar{width:84px; height:84px; border-radius:22px}
+      .btn{width:100%; justify-content:center}
+      .kpi{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" title="Rajat Joshi">
+        <div style="min-width:0">
+          <div class="title">Rajat Joshi</div>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="#education">Education</a>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center">
+        <button class="iconbtn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+        <button class="pill" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span id="themeIcon">🌙</span>
+          <span id="themeText">Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobilemenu" id="mobileMenu" aria-hidden="true">
+      <div class="mobilemenu-inner">
+        <a href="#about"><span>About</span><small>Bio</small></a>
+        <a href="#research"><span>Research</span><small>Themes & projects</small></a>
+        <a href="#publications"><span>Publications</span><small>Selected + full list</small></a>
+        <a href="assets/cv.pdf" target="_blank" rel="noopener"><span>CV</span><small>Download (PDF)</small></a>
+        <a href="#education"><span>Education</span><small>Degrees & training</small></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="card">
+        <div class="hero-merged">
+          <div class="avatar" aria-label="Profile">
+            <span id="avatarFallback">RJ</span>
+            <img src="assets/headshot.jpg" alt="Headshot of Rajat Joshi"
+                 onload="document.getElementById('avatarFallback').style.display='none'"
+                 onerror="this.remove()" />
+          </div>
+
+          <div class="hero-name">
+            <div class="h1"><span style="background: linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Rajat Joshi</span></div>
+            <div class="subline">Email: <a href="mailto:rjoshi@princeton.edu">rjoshi@princeton.edu</a></div>
+          </div>
+
+          <div class="hero-actions">
+            <div class="btnrow">
+              <a class="btn primary" href="assets/cv.pdf" target="_blank" rel="noopener">⬇️ CV</a>
+              <a class="btn" href="#publications">📚 Publications</a>
+              <a class="btn" href="#education">🎓 Education</a>
+              <a class="btn" href="https://scholar.google.com" target="_blank" rel="noopener">🎓 Scholar</a>
+              <a class="btn" href="https://github.com" target="_blank" rel="noopener">💻 GitHub</a>
+              <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noopener">🔗 LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          I’m Rajat Joshi, a PhD candidate in the Program in Atmospheric and Oceanic Sciences at Princeton University, advised by Dr. Rong Zhang. I have a broad interest in climate dynamics, and my PhD thesis focuses on investigating teleconnection mechanisms associated with the weakening of the Atlantic Meridional Overturning Circulation (AMOC).
+        </p>
+        <p>
+          To study these teleconnections, I analyze output from idealized hosing experiments conducted using the Geophysical Fluid Dynamics Laboratory (GFDL) high‑resolution, fully coupled climate model.
+        </p>
+        <p>
+          Besides my thesis project, I am also interested in research problems related to extreme weather events such as tropical cyclones (hurricanes), extratropical storms, heat waves, and atmospheric rivers.
+        </p>
+        <p>
+          Before coming to Princeton, I completed my Master’s in Climate Science at the Centre for Atmospheric and Oceanic Sciences, Indian Institute of Science, where I worked with Prof. V. Venugopal. My master’s thesis was on the sub-seasonal characteristics of Indian monsoon floods.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="card">
+        <h2>Research</h2>
+
+        <div class="projgrid">
+          <!-- 1) AMOC teleconnection (paper) -->
+          <div class="item proj clickable" data-href="https://doi.org/10.1038/s41612-025-01253-z" role="link" aria-label="Open paper in a new tab">
+            <div>
+              <div class="top">
+                <h3>What mechanisms drive Atlantic extratropical–tropical teleconnection in response to weakening of AMOC?</h3>
+              </div>
+
+              <div class="desc">
+                <p>
+                  When the Atlantic Meridional Overturning Circulation (AMOC) weakens, many models produce a distinctive North Atlantic “horseshoe” of cooler sea‑surface temperatures—and the tropical Atlantic atmosphere responds.
+                </p>
+                <p>
+                  This project focuses on the pathway: how extratropical anomalies propagate equatorward, why the pattern is zonally asymmetric, and whether amplified anomalies near the western boundary reflect a direct ocean response and/or coupled feedbacks.
+                </p>
+
+                <details class="proj-details" style="margin-top:10px">
+                  <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
+                  <div style="margin-top:10px; color:var(--muted); line-height:1.75">
+                    <p>
+                      I use fully coupled, high‑resolution simulations and process‑based diagnostics to separate the direct ocean‑dynamical response to AMOC weakening from coupled feedbacks that can amplify or steer the signal.
+                    </p>
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+                      <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
+                      <div class="small">(Add 2–3 bullets here once results are finalized.)</div>
+                    </div>
+                  </div>
+                </details>
+
+                <div class="links" aria-label="Links">
+                  <a href="assets/papers/amoc-teleconnection-2025.pdf" target="_blank" rel="noopener">PDF</a>
+                  <a href="https://doi.org/10.1038/s41612-025-01253-z" target="_blank" rel="noopener">DOI</a>
+                </div>
+              </div>
+            </div>
+
+            <figure>
+              <img class="zoomable" src="assets/schematics/amoc-teleconnection-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure from the paper" />
+              <figcaption>Figure placeholder (click to zoom).</figcaption>
+            </figure>
+          </div>
+
+          <!-- 2) 2023 paper -->
+          <div class="item proj clickable" data-href="https://doi.org/10.1038/s41612-023-00482-4" role="link" aria-label="Open paper in a new tab">
+            <div>
+              <div class="top">
+                <h3>Impacts of North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific</h3>
+              </div>
+
+              <div class="desc">
+                <p>
+                  Many climate models struggle with persistent North Atlantic SST biases. This work asks whether those biases can project onto the North Pacific—especially in the UTLS layer where jet‑stream dynamics are sensitive.
+                </p>
+
+                <details class="proj-details" style="margin-top:10px">
+                  <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
+                  <div style="margin-top:10px; color:var(--muted); line-height:1.75">
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+                      <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
+                      <ul style="margin:0; padding-left:18px">
+                        <li><b>Remote imprint:</b> North Atlantic biases induce cooling below and warming in the UTLS over the extratropical North Pacific.</li>
+                        <li><b>PDO-like structure:</b> The resulting vertical dipole resembles the observed PDO‑associated temperature structure.</li>
+                        <li><b>Dynamical pathway:</b> Tropical circulation changes help organize the extratropical North Pacific response.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </details>
+
+                <div class="links" aria-label="Links">
+                  <a href="assets/papers/na-biases-utls-2023.pdf" target="_blank" rel="noopener">PDF</a>
+                  <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank" rel="noopener">DOI</a>
+                </div>
+              </div>
+            </div>
+
+            <figure>
+              <img class="zoomable" src="assets/schematics/na-biases-utls-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a figure from the 2023 paper" />
+              <figcaption>Figure placeholder (click to zoom).</figcaption>
+            </figure>
+          </div>
+
+          <!-- 3) Submitted -->
+          <div class="item proj" role="group" aria-label="Research: Interhemispheric footprint on Indian monsoon floods">
+            <div>
+              <div class="top">
+                <h3>Interhemispheric footprint on Indian monsoon floods</h3>
+              </div>
+
+              <div class="desc">
+                <p>
+                  This project examines how large‑scale interhemispheric signals can shape the sub‑seasonal structure of monsoon rainfall extremes and the clustering of flood episodes.
+                </p>
+
+                <details class="proj-details" style="margin-top:10px">
+                  <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
+                  <div style="margin-top:10px; color:var(--muted); line-height:1.75">
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+                      <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
+                      <div class="small">Status: Submitted. (Key results summary will be added.)</div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <figure>
+              <img class="zoomable" src="assets/schematics/monsoon-floods-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
+              <figcaption>Figure placeholder (click to zoom).</figcaption>
+            </figure>
+          </div>
+
+          <!-- 4) In preparation -->
+          <div class="item proj" role="group" aria-label="Research: Transient UTLS changes over the extratropical North Pacific under AMOC weakening">
+            <div>
+              <div class="top">
+                <h3>Transient changes in the upper troposphere/lower stratosphere (UTLS) over the extratropical North Pacific in response to a substantial weakening of the AMOC (boreal winter)</h3>
+              </div>
+
+              <div class="desc">
+                <p>
+                  This project tracks the transient wintertime evolution of the atmosphere over the extratropical North Pacific under strong AMOC weakening, focusing on UTLS temperature and circulation changes.
+                </p>
+
+                <details class="proj-details" style="margin-top:10px">
+                  <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
+                  <div style="margin-top:10px; color:var(--muted); line-height:1.75">
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+                      <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
+                      <div class="small">Status: In preparation. (Key results summary will be added.)</div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <figure>
+              <img class="zoomable" src="assets/schematics/utls-np-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
+              <figcaption>Figure placeholder (click to zoom).</figcaption>
+            </figure>
+          </div>
+
+          <!-- 5) In preparation -->
+          <div class="item proj" role="group" aria-label="Research: AMOC weakening and Atlantic tropical cyclones">
+            <div>
+              <div class="top">
+                <h3>AMOC weakening and Atlantic tropical cyclone activity</h3>
+              </div>
+
+              <div class="desc">
+                <p>
+                  This project investigates how AMOC‑driven SST pattern changes and tropical circulation adjustments alter environmental conditions that influence Atlantic tropical cyclone activity.
+                </p>
+
+                <details class="proj-details" style="margin-top:10px">
+                  <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
+                  <div style="margin-top:10px; color:var(--muted); line-height:1.75">
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
+                      <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
+                      <div class="small">Status: In preparation. (Key results summary will be added.)</div>
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <figure>
+              <img class="zoomable" src="assets/schematics/tc-atlantic-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
+              <figcaption>Figure placeholder (click to zoom).</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="card">
+        <h2>Publications</h2>
+
+        <div class="pubgroup">Peer-Reviewed</div>
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <h3>Joshi, R., Zhang, R. On the Atlantic extratropical–tropical teleconnection in response to external freshwater forcing.</h3>
+              <div class="tag">npj Climate and Atmospheric Science • 2025</div>
+            </div>
+            <div class="sub">
+              npj Climate and Atmospheric Science <b>8</b>, 371 (2025). 
+              <a href="https://doi.org/10.1038/s41612-025-01253-z" target="_blank" rel="noopener">https://doi.org/10.1038/s41612-025-01253-z</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <h3>Joshi, R., Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific.</h3>
+              <div class="tag">npj Climate and Atmospheric Science • 2023</div>
+            </div>
+            <div class="sub">
+              npj Climate and Atmospheric Science <b>6</b>, 151 (2023). 
+              <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank" rel="noopener">https://doi.org/10.1038/s41612-023-00482-4</a>
+              <div class="pub-actions">
+                <a class="btn" href="#" onclick="return false;">GFDL Research Highlight (add link)</a>
+                <a class="btn" href="#" onclick="return false;">Climate.gov Feature (add link)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <details style="margin-top:12px">
+          <summary style="cursor:pointer; color:var(--text); font-weight:650">Show full list</summary>
+
+          <div style="margin-top:12px" class="pubgroup">Submitted</div>
+          <div class="list">
+            <div class="item">
+              <div class="top">
+                <h3>Joshi, R., Jyoti, P.J., Venugopal, V. Interhemispheric footprint on Indian Monsoon Floods.</h3>
+                <div class="tag">submitted • 202X</div>
+              </div>
+              <div class="sub">Manuscript submitted.</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="pubgroup">In Preparation</div>
+          <div class="list">
+            <div class="item">
+              <div class="top">
+                <h3>Joshi, R., Zhang, R. Weakening of the AMOC induced upper troposphere/lower stratosphere warming over the extratropical North Pacific.</h3>
+                <div class="tag">in prep</div>
+              </div>
+              <div class="sub">Manuscript in preparation.</div>
+            </div>
+
+            <div class="item">
+              <div class="top">
+                <h3>Joshi, R., Zhang, R. On the simulated Atlantic tropical cyclone activity in response to weakening of the AMOC.</h3>
+                <div class="tag">in prep</div>
+              </div>
+              <div class="sub">Manuscript in preparation.</div>
+            </div>
+          </div>
+
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="card">
+        <h2>Education</h2>
+        <div class="list">
+          <div class="item">
+            <div class="top"><h3>PhD Candidate, Program in Atmospheric and Oceanic Sciences — Princeton University</h3></div>
+            <div class="sub">Advisor: Dr. Rong Zhang</div>
+          </div>
+
+          <div class="item">
+            <div class="top"><h3>Master’s in Climate Science — Centre for Atmospheric and Oceanic Sciences, Indian Institute of Science</h3></div>
+            <div class="sub">Advisor: Prof. V. Venugopal • Thesis: Sub-seasonal characteristics of Indian monsoon floods</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <div class="cap" id="lbCap">Image</div>
+        <button id="lbClose" type="button">Close</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lbImg" alt="Expanded view" />
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Theme toggle
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    function setTheme(mode){
+      root.dataset.theme = mode;
+      const isLight = mode === 'light';
+      themeIcon.textContent = isLight ? '☀️' : '🌙';
+      themeText.textContent = isLight ? 'Light' : 'Dark';
+      localStorage.setItem('theme', mode);
+    }
+    setTheme(localStorage.getItem('theme') || 'dark');
+    themeBtn.addEventListener('click', () => setTheme(root.dataset.theme === 'light' ? 'dark' : 'light'));
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+      mobileMenu.setAttribute('aria-hidden', String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }));
+
+    // Clickable research cards (open in new tab) but don't hijack clicks on links/details/images
+    document.querySelectorAll('.proj.clickable').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t.closest('a') || t.closest('details') || t.closest('summary') || t.closest('img')) return;
+        const href = card.getAttribute('data-href');
+        if (href) window.open(href, '_blank', 'noopener');
+      });
+    });
+
+    // Accordion behavior: opening one closes the others
+    const detailsList = Array.from(document.querySelectorAll('.proj-details'));
+    detailsList.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (!d.open) return;
+        detailsList.forEach(other => { if (other !== d) other.open = false; });
+      });
+    });
+
+    // Lightbox for images
+    const dlg = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLightbox(src, cap){
+      lbImg.src = src;
+      lbCap.textContent = cap || 'Image';
+      dlg.showModal();
+    }
+    document.querySelectorAll('img.zoomable').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(img.src, img.getAttribute('data-caption'));
+      });
+    });
+    lbClose.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (e) => {
+      const rect = dlg.querySelector('.lightbox-inner').getBoundingClientRect();
+      const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inside) dlg.close();
+    });
+  </script>
+</body>
+</html>
