@@ -107,14 +107,34 @@
 
     /* Hero */
     .hero{padding:34px 0 12px}
-    .hero-merged{display:grid; grid-template-columns: auto 1fr auto; gap:18px; align-items:center}
-    .hero-name{min-width:0}
+    .hero-merged{
+      display:grid;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "avatar name"
+        "avatar actions";
+      column-gap:18px;
+      row-gap:12px;
+      align-items:center;
+    }
+    .hero-name{grid-area:name; min-width:0}
+    .hero-actions{grid-area:actions}
+    .avatar{grid-area:avatar}
     .hero-name .h1{margin:0}
     .hero-name .subline{color:var(--muted); margin-top:6px; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-    .hero-actions .btnrow{margin-top:0; justify-content:flex-end}
+    .hero-actions .btnrow{margin-top:0; justify-content:flex-start}
 
     @media (max-width: 880px){
-      .hero-merged{grid-template-columns:1fr; text-align:center}
+      .hero-merged{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "avatar"
+          "name"
+          "actions";
+        text-align:center;
+        justify-items:center; /* ensure avatar + text are centered in the single-column grid */
+      }
+      .avatar{margin:0 auto; justify-self:center}
       .hero-actions .btnrow{justify-content:center}
       .hero-name .subline{white-space:normal}
     }
@@ -310,7 +330,9 @@
           </div>
 
           <div class="hero-name">
-            <div class="h1"><span style="background: linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Rajat Joshi</span></div>
+            <div class="h1">
+              <span style="background: linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Rajat Joshi</span>
+            </div>
             <div class="subline">Email: <a href="mailto:rjoshi@princeton.edu">rjoshi@princeton.edu</a></div>
           </div>
 
@@ -335,7 +357,7 @@
           I’m Rajat Joshi, a PhD candidate in the Program in Atmospheric and Oceanic Sciences at Princeton University, advised by Dr. Rong Zhang. I have a broad interest in climate dynamics, and my PhD thesis focuses on investigating teleconnection mechanisms associated with the weakening of the Atlantic Meridional Overturning Circulation (AMOC).
         </p>
         <p>
-          To study these teleconnections, I analyze output from idealized hosing experiments conducted using the Geophysical Fluid Dynamics Laboratory (GFDL) high‑resolution, fully coupled climate model.
+          To study these teleconnections, I analyze output from idealized hosing experiments conducted using the Geophysical Fluid Dynamics Laboratory (GFDL) high-resolution, fully coupled climate model.
         </p>
         <p>
           Besides my thesis project, I am also interested in research problems related to extreme weather events such as tropical cyclones (hurricanes), extratropical storms, heat waves, and atmospheric rivers.
@@ -360,7 +382,7 @@
 
               <div class="desc">
                 <p>
-                  When the Atlantic Meridional Overturning Circulation (AMOC) weakens, many models produce a distinctive North Atlantic “horseshoe” of cooler sea‑surface temperatures—and the tropical Atlantic atmosphere responds.
+                  When the Atlantic Meridional Overturning Circulation (AMOC) weakens, many models produce a distinctive North Atlantic “horseshoe” of cooler sea-surface temperatures—and the tropical Atlantic atmosphere responds.
                 </p>
                 <p>
                   This project focuses on the pathway: how extratropical anomalies propagate equatorward, why the pattern is zonally asymmetric, and whether amplified anomalies near the western boundary reflect a direct ocean response and/or coupled feedbacks.
@@ -370,7 +392,7 @@
                   <summary style="cursor:pointer; color:var(--text); font-weight:650">Read more</summary>
                   <div style="margin-top:10px; color:var(--muted); line-height:1.75">
                     <p>
-                      I use fully coupled, high‑resolution simulations and process‑based diagnostics to separate the direct ocean‑dynamical response to AMOC weakening from coupled feedbacks that can amplify or steer the signal.
+                      I use fully coupled, high-resolution simulations and process-based diagnostics to separate the direct ocean-dynamical response to AMOC weakening from coupled feedbacks that can amplify or steer the signal.
                     </p>
                     <div style="margin-top:12px; padding-top:10px; border-top:1px solid var(--line)">
                       <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
@@ -387,8 +409,8 @@
             </div>
 
             <figure>
-              <img class="zoomable" src="assets/schematics/amoc-teleconnection-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure from the paper" />
-              <figcaption>Figure placeholder (click to zoom).</figcaption>
+              <img class="zoomable" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27600%27%20viewBox%3D%270%200%20800%20600%27%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%237aa2ff%27%20offset%3D%270%27%2F%3E%3Cstop%20stop-color%3D%27%236ee7b7%27%20offset%3D%271%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%3Crect%20width%3D%27800%27%20height%3D%27600%27%20fill%3D%27url(%23g)%27%2F%3E%0A%3Cpath%20d%3D%27M0%20430%20C%20160%20380%20320%20520%20480%20470%20C%20640%20420%20720%20350%20800%20380%20L800%20600%20L0%20600%20Z%27%20fill%3D%27rgba(255%2C255%2C255%2C0.18)%27%2F%3E%0A%3C%2Fsvg%3E" alt="Figure (coming soon)" data-caption="Figure coming soon — replace with a schematic/figure from the paper" />
+              <figcaption>Figure coming soon (click to zoom).</figcaption>
             </figure>
           </div>
 
@@ -401,7 +423,7 @@
 
               <div class="desc">
                 <p>
-                  Many climate models struggle with persistent North Atlantic SST biases. This work asks whether those biases can project onto the North Pacific—especially in the UTLS layer where jet‑stream dynamics are sensitive.
+                  Many climate models struggle with persistent North Atlantic SST biases. This work asks whether those biases can project onto the North Pacific—especially in the UTLS layer where jet-stream dynamics are sensitive.
                 </p>
 
                 <details class="proj-details" style="margin-top:10px">
@@ -411,7 +433,7 @@
                       <div style="font-weight:700; color:var(--text); margin-bottom:6px">Key results</div>
                       <ul style="margin:0; padding-left:18px">
                         <li><b>Remote imprint:</b> North Atlantic biases induce cooling below and warming in the UTLS over the extratropical North Pacific.</li>
-                        <li><b>PDO-like structure:</b> The resulting vertical dipole resembles the observed PDO‑associated temperature structure.</li>
+                        <li><b>PDO-like structure:</b> The resulting vertical dipole resembles the observed PDO-associated temperature structure.</li>
                         <li><b>Dynamical pathway:</b> Tropical circulation changes help organize the extratropical North Pacific response.</li>
                       </ul>
                     </div>
@@ -426,8 +448,8 @@
             </div>
 
             <figure>
-              <img class="zoomable" src="assets/schematics/na-biases-utls-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a figure from the 2023 paper" />
-              <figcaption>Figure placeholder (click to zoom).</figcaption>
+              <img class="zoomable" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27600%27%20viewBox%3D%270%200%20800%20600%27%3E%0A%3Cdefs%3E%3CradialGradient%20id%3D%27g2%27%20cx%3D%270.2%27%20cy%3D%270.2%27%20r%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%236ee7b7%27%20offset%3D%270%27%2F%3E%3Cstop%20stop-color%3D%27%237aa2ff%27%20offset%3D%271%27%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%0A%3Crect%20width%3D%27800%27%20height%3D%27600%27%20fill%3D%27url(%23g2)%27%2F%3E%0A%3C%2Fsvg%3E" alt="Figure (coming soon)" data-caption="Figure coming soon — replace with a figure from the 2023 paper" />
+              <figcaption>Figure coming soon (click to zoom).</figcaption>
             </figure>
           </div>
 
@@ -440,7 +462,7 @@
 
               <div class="desc">
                 <p>
-                  This project examines how large‑scale interhemispheric signals can shape the sub‑seasonal structure of monsoon rainfall extremes and the clustering of flood episodes.
+                  This project examines how large-scale interhemispheric signals can shape the sub-seasonal structure of monsoon rainfall extremes and the clustering of flood episodes.
                 </p>
 
                 <details class="proj-details" style="margin-top:10px">
@@ -456,8 +478,8 @@
             </div>
 
             <figure>
-              <img class="zoomable" src="assets/schematics/monsoon-floods-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
-              <figcaption>Figure placeholder (click to zoom).</figcaption>
+              <img class="zoomable" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27600%27%20viewBox%3D%270%200%20800%20600%27%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%27m%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%233b82f6%27%20offset%3D%270%27%2F%3E%3Cstop%20stop-color%3D%27%2322c55e%27%20offset%3D%271%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%3Crect%20width%3D%27800%27%20height%3D%27600%27%20fill%3D%27url(%23m)%27%2F%3E%0A%3C%2Fsvg%3E" alt="Figure (coming soon)" data-caption="Figure coming soon" />
+              <figcaption>Figure coming soon (click to zoom).</figcaption>
             </figure>
           </div>
 
@@ -486,8 +508,8 @@
             </div>
 
             <figure>
-              <img class="zoomable" src="assets/schematics/utls-np-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
-              <figcaption>Figure placeholder (click to zoom).</figcaption>
+              <img class="zoomable" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27600%27%20viewBox%3D%270%200%20800%20600%27%3E%0A%3Cdefs%3E%3CradialGradient%20id%3D%27u%27%20cx%3D%270.25%27%20cy%3D%270.25%27%20r%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%237aa2ff%27%20offset%3D%270%27%2F%3E%3Cstop%20stop-color%3D%27%23059669%27%20offset%3D%271%27%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%0A%3Crect%20width%3D%27800%27%20height%3D%27600%27%20fill%3D%27url(%23u)%27%2F%3E%0A%3C%2Fsvg%3E" alt="Figure (coming soon)" data-caption="Figure coming soon" />
+              <figcaption>Figure coming soon (click to zoom).</figcaption>
             </figure>
           </div>
 
@@ -500,7 +522,7 @@
 
               <div class="desc">
                 <p>
-                  This project investigates how AMOC‑driven SST pattern changes and tropical circulation adjustments alter environmental conditions that influence Atlantic tropical cyclone activity.
+                  This project investigates how AMOC-driven SST pattern changes and tropical circulation adjustments alter environmental conditions that influence Atlantic tropical cyclone activity.
                 </p>
 
                 <details class="proj-details" style="margin-top:10px">
@@ -516,8 +538,8 @@
             </div>
 
             <figure>
-              <img class="zoomable" src="assets/schematics/tc-atlantic-placeholder.svg" alt="Figure (placeholder)" data-caption="Replace with a schematic/figure" />
-              <figcaption>Figure placeholder (click to zoom).</figcaption>
+              <img class="zoomable" src="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27800%27%20height%3D%27600%27%20viewBox%3D%270%200%20800%20600%27%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%27t%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%23fb7185%27%20offset%3D%270%27%2F%3E%3Cstop%20stop-color%3D%27%237aa2ff%27%20offset%3D%271%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%3Crect%20width%3D%27800%27%20height%3D%27600%27%20fill%3D%27url(%23t)%27%2F%3E%0A%3C%2Fsvg%3E" alt="Figure (coming soon)" data-caption="Figure coming soon" />
+              <figcaption>Figure coming soon (click to zoom).</figcaption>
             </figure>
           </div>
         </div>
@@ -528,68 +550,29 @@
       <div class="card">
         <h2>Publications</h2>
 
-        <div class="pubgroup">Peer-Reviewed</div>
         <div class="list">
           <div class="item">
             <div class="top">
-              <h3>Joshi, R., Zhang, R. On the Atlantic extratropical–tropical teleconnection in response to external freshwater forcing.</h3>
-              <div class="tag">npj Climate and Atmospheric Science • 2025</div>
+              <h3>What mechanisms drive Atlantic extratropical–tropical teleconnection in response to weakening of AMOC?</h3>
             </div>
             <div class="sub">
-              npj Climate and Atmospheric Science <b>8</b>, 371 (2025). 
-              <a href="https://doi.org/10.1038/s41612-025-01253-z" target="_blank" rel="noopener">https://doi.org/10.1038/s41612-025-01253-z</a>
+              <a href="https://doi.org/10.1038/s41612-025-01253-z" target="_blank" rel="noopener">DOI: 10.1038/s41612-025-01253-z</a>
             </div>
           </div>
 
           <div class="item">
             <div class="top">
-              <h3>Joshi, R., Zhang, R. Impacts of the North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific.</h3>
-              <div class="tag">npj Climate and Atmospheric Science • 2023</div>
+              <h3>Impacts of North Atlantic biases on the upper troposphere/lower stratosphere over the extratropical North Pacific</h3>
             </div>
             <div class="sub">
-              npj Climate and Atmospheric Science <b>6</b>, 151 (2023). 
-              <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank" rel="noopener">https://doi.org/10.1038/s41612-023-00482-4</a>
-              <div class="pub-actions">
-                <a class="btn" href="#" onclick="return false;">GFDL Research Highlight (add link)</a>
-                <a class="btn" href="#" onclick="return false;">Climate.gov Feature (add link)</a>
-              </div>
+              <a href="https://doi.org/10.1038/s41612-023-00482-4" target="_blank" rel="noopener">DOI: 10.1038/s41612-023-00482-4</a>
             </div>
           </div>
         </div>
 
         <details style="margin-top:12px">
           <summary style="cursor:pointer; color:var(--text); font-weight:650">Show full list</summary>
-
-          <div style="margin-top:12px" class="pubgroup">Submitted</div>
-          <div class="list">
-            <div class="item">
-              <div class="top">
-                <h3>Joshi, R., Jyoti, P.J., Venugopal, V. Interhemispheric footprint on Indian Monsoon Floods.</h3>
-                <div class="tag">submitted • 202X</div>
-              </div>
-              <div class="sub">Manuscript submitted.</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px" class="pubgroup">In Preparation</div>
-          <div class="list">
-            <div class="item">
-              <div class="top">
-                <h3>Joshi, R., Zhang, R. Weakening of the AMOC induced upper troposphere/lower stratosphere warming over the extratropical North Pacific.</h3>
-                <div class="tag">in prep</div>
-              </div>
-              <div class="sub">Manuscript in preparation.</div>
-            </div>
-
-            <div class="item">
-              <div class="top">
-                <h3>Joshi, R., Zhang, R. On the simulated Atlantic tropical cyclone activity in response to weakening of the AMOC.</h3>
-                <div class="tag">in prep</div>
-              </div>
-              <div class="sub">Manuscript in preparation.</div>
-            </div>
-          </div>
-
+          <div style="margin-top:10px" class="small">Add additional publications here as you send them.</div>
         </details>
       </div>
     </section>
@@ -702,3 +685,4 @@
   </script>
 </body>
 </html>
+
